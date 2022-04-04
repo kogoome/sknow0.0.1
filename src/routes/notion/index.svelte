@@ -1,1 +1,5 @@
-<h1> hello world</h1>
+<svelte:head>
+  <title>Welcome</title>
+</svelte:head>
+
+<h1>hello world</h1>
