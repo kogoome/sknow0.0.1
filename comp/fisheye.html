@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>FisheyeWithTransition</title>
+</head>
+<body>
+  <div id="top">
+    <span id="date">&#128198;</span>
+    <span><a href="../index.html">index</a></span>
+    <span id="path"></span>
+  </div>
+
+  <div id="contents">
+    <p id="title" onclick="record_date()"></p>
+    <h1>제목1</h1>
+    <p>
+      <a href="#">링크 예제</a><br>
+    </p>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <pre class="prettyprint">코드작성공간</pre>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  </div>
+
+  <center>
+    <h1 id="emgContainer"> Fisheye CSS Transition
+      <span id="emg1" class="emg" onmouseover="emg1Over()">&#8986;</span><!--
+    --><span id="emg2" class="emg" onmouseover="emg2Over()">&#9202;</span><!--
+    --><span id="emg3" class="emg" onmouseover="emg3Over()">&#9200;</span><!--
+    --><span id="emg4" class="emg" onmouseover="emg4Over()">&#9201;</span><!--
+    --><span id="emg5" class="emg" onmouseover="emg5Over()">&#9203;</span>
+    </h1>
+  </center>
+</body>
+<style>
+  #emgContainer {
+    margin: 0%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    transition: background-color 2s, opacity; 
+  }
+  body {
+    margin: 0%;/* 문서 전체 공백을 없엠 */
+  }
+  .emg {
+    padding: 7px; /* 자간, 반응영역 */
+    font-size: xx-large;
+    transition: font-size 0.3s;
+  }
+</style>
+<script>
+  emgContainer.onmousemove = function(){
+    //투명도rgba(255,255,255,0.9)
+    randomcolor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+    this.style.backgroundColor = randomcolor;
+  };
+  emgContainer.onmouseout = function(){//아이디 값을 이용한 익명함수의 작동은 아이디가 유일값일때만 작동하는듯 하다.
+    for (var i=0; i < this.children.length; i++) {
+      this.children[i].style.fontSize='100%';
+    }
+    var addOpacity = this.style.backgroundColor.replace('rgb','rgba').replace(')',', 0.01)');
+    this.style.backgroundColor = addOpacity;
+  };
+  function emg1Over(){
+    document.getElementById("emg1").style.fontSize = '200%';
+    document.getElementById("emg2").style.fontSize = '130%';
+    document.getElementById("emg3").style.fontSize = '100%';
+    document.getElementById("emg4").style.fontSize = '90%';
+    document.getElementById("emg5").style.fontSize = '90%';
+  };
+  function emg2Over(){
+    document.getElementById("emg1").style.fontSize = '130%';
+    document.getElementById("emg2").style.fontSize = '200%';
+    document.getElementById("emg3").style.fontSize = '130%';
+    document.getElementById("emg4").style.fontSize = '100%';
+    document.getElementById("emg5").style.fontSize = '90%';
+  };
+  function emg3Over(){
+    document.getElementById("emg1").style.fontSize = '100%';
+    document.getElementById("emg2").style.fontSize = '130%';
+    document.getElementById("emg3").style.fontSize = '200%';
+    document.getElementById("emg4").style.fontSize = '130%';
+    document.getElementById("emg5").style.fontSize = '100%';
+  };
+  function emg4Over(){
+    document.getElementById("emg1").style.fontSize = '90%';
+    document.getElementById("emg2").style.fontSize = '100%';
+    document.getElementById("emg3").style.fontSize = '130%';
+    document.getElementById("emg4").style.fontSize = '200%';
+    document.getElementById("emg5").style.fontSize = '130%';
+  };
+  function emg5Over(){
+    document.getElementById("emg1").style.fontSize = '90%';
+    document.getElementById("emg2").style.fontSize = '90%';
+    document.getElementById("emg3").style.fontSize = '100%';
+    document.getElementById("emg4").style.fontSize = '130%';
+    document.getElementById("emg5").style.fontSize = '200%';
+  };
+  function emgout(){
+    document.getElementById("emg1").style.fontSize = '100%';
+    document.getElementById("emg2").style.fontSize = '100%';
+    document.getElementById("emg3").style.fontSize = '100%';
+    document.getElementById("emg4").style.fontSize = '100%';
+    document.getElementById("emg5").style.fontSize = '100%';
+  };
+</script>
+<link rel="stylesheet" href="css/myCss.css">
+<script
+  src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?autoload=true&skin=sunburst&lang=css"></script>
+<script src="js/date.js"></script>
+<script src="js/path_a.js"></script>
+</html>

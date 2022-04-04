@@ -1,0 +1,65 @@
+<style>
+	/* 본 소스는 %(퍼센트)로 되어있기 때문에 반응형에 적용할 수 있습니다 */
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	.bannner {
+		position: relative;
+		display: inline-block;
+	}
+	.bannner img {
+		max-width: 100%;
+	}
+	.bannner span.text {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		transform: translateY(-50%);
+		display: none;
+		width: 100%;
+		font-size: 70px;
+		color: yellowgreen;
+		font-weight: 900;
+		text-align: center;
+	}
+	.bannner::before,
+	.bannner::after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		transition: all 0.8s;
+		-webkit-transition: all 0.8s;
+	}
+	.bannner::before {
+		width: 97%;
+		height: 95%;
+		border-top: 2px solid yellowgreen;
+		border-bottom: 2px solid yellowgreen;
+		width: 0;
+	} /* 보더의 두께가 있기 때문에 요소의 크기에 계산해 줘야 합니다 */
+	.bannner::after {
+		width: 97%;
+		height: 95%;
+		border-left: 2px solid yellowgreen;
+		border-right: 2px solid yellowgreen;
+		height: 0;
+	} /* 보더의 두께가 있기 때문에 요소의 크기에 계산해 줘야 합니다 */
+
+	/* 마우스가 올라가면 반응하는 소스 */
+	.bannner:hover span.text {
+		display: block;
+	}
+	.bannner:hover::before {
+		width: calc(97% + 4px);
+	} /* 화면에 따라서 정확한 사각형을 위한 값을 줘야하는 부분 */
+	.bannner:hover::after {
+		height: calc(95% + 4px);
+	} /* 보더의 두께값을 더해줘서 정확한 모서리를 만들기 위해 calc값을 사용했습니다 */
+</style>
+<div class="bannner">
+	<img src="./img/double.png" />
+	<span class="text">배너에 글씨가 나타나는 부분</span>
+</div>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>MousePointer</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/myCss.css">
+  <script
+    src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?autoload=true&skin=sunburst&lang=css"></script>
+  <script src="js/date.js"></script>
+</head>
+
+<body>
+  <div id="top">
+    <span id="date">&#128198;</span>
+    <span><a href="../index.html">index</a></span>
+    <span id="path"></span>
+  </div>
+
+  <div id="contents">
+    <p id="title" onclick="record_date()"></p>
+    <div id="box">
+      <center id="boxtext">
+      </center>
+    </div>
+  </div>
+
+</body>
+<!--path title-->
+<script src="js/path_a.js"></script>
+<style>
+  #box {
+    border: 40pt solid yellowgreen;
+    height: 200px;
+    transition: border 3s;
+    font-size: 5em;
+  }
+
+</style>
+<script>
+document.addEventListener('mousemove', function(e){
+  document.getElementById('boxtext').innerHTML=`${e.clientX }, ${e.clientY}`;
+  randomcolor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+  randomsize = Math.floor(Math.random() * 50)+"pt";
+  document.getElementById('box').style.border = randomsize+' solid '+randomcolor;
+})
+
+</script>
+</html>

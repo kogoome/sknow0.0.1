@@ -1,0 +1,209 @@
+<html>
+	<head>
+		<title id="headtitle">title</title>
+	</head>
+	<body>
+		<nav>
+			<span>&#128198; Calendar</span>
+			<span>&#128196; link</span>
+			<span id="navLinkCurrentPageName"></span>
+		</nav>
+		<section>
+			<header>
+				<div id="title" contenteditable="true" placeholder="제목없음" onkeydown="headtitle(event)">타이틀</div>
+			</header>
+			<div id="contents"></div>
+		</section>
+	</body>
+	<script>
+		// 문서 로드되면 타이틀 입력칸에 포커스
+		document.getElementById('title').focus(); 
+
+
+		function headtitle(ev) {
+			// 문서 제목 온키다운 함수
+			document.getElementById('headtitle').innerHTML = document.getElementById('title').innerHTML;
+			document.getElementById('navLinkCurrentPageName').innerHTML = ' / ' + document.getElementById('title').innerHTML;
+			if (ev.ctrlKey && ev.keyCode == 13) {
+				//엔터키를 누르면 새로운 div태그를 생성해서
+				const div = document.createElement('div');
+				div.setAttribute('contenteditable', 'true');
+				div.setAttribute('onkeydown', 'divAction(event)');
+				div.innerHTML = '<br>';
+				document.getElementById('contents').append(div);
+				div.focus();
+				return false;
+			}
+			if (ev.keyCode == 13) {
+				//엔터키를 작동방지용 : 방지안됨
+				return false;
+			}
+		}
+
+		function divAction(ev) {
+			var activeArea = document.activeElement;
+			/*if (ev.keyCode == 13) { 엔터입력시 div 대신 br로 변환 : 작동안함
+            document.execCommand('insertHTML', false, '<br>');
+            return false;
+        }*/
+			if (ev.ctrlKey && ev.keyCode == 13) {
+				const div = document.createElement('div');
+				div.setAttribute('contenteditable', 'true');
+				div.setAttribute('onkeydown', 'divAction(event)');
+				document.getElementById('contents').append(div);
+				div.focus();
+				return false;
+			}
+			if (ev.ctrlKey && ev.altKey && ev.keyCode == 80) {
+				//ctrl + alt + p : alert 박스내용
+				alert(document.activeElement.innerHTML);
+				return false;
+			}
+			if (ev.ctrlKey && ev.keyCode == 46) {
+				//ctrl + delete : 현재 행과 (이전행 내용) 삭제 (의도하지않음 그냥 단축키실행부분)
+				var text = activeArea.previousElementSibling.innerHTML;
+				activeArea.previousElementSibling.focus();
+				activeArea.remove();
+				return false;
+			}
+			if (activeArea.innerHTML == '' && ev.keyCode == 8) {
+				activeArea.previousElementSibling.focus();
+				activeArea.remove();
+				return false;
+			}
+		}
+
+		/*--------------------------------------------------------------------------*/
+		/*    const ed = document.getElementById('editable'),
+            ta = document.getElementById('txt');
+
+        const key13 = function (ev) {
+
+            if (ev.keyCode == 13) {
+                ev.preventDefault();
+                /!*const selection = window.getSelection(),
+                    range = selection.getRangeAt(0),
+                    node = document.getSelection().anchorNode,
+                    pNode = node.parentNode;
+                var tag = pNode.nodeName.toUpperCase();*!/
+                if (ev.shiftKey) {
+                    alert("aa")
+                }
+                if (ev.ctrlKey) {
+                    tag = prompt('Entet tag name', 'div');
+                } else
+                    switch (tag) {
+                        case 'P':
+                            tag = 'BR';
+                            break;
+
+                        case 'DIV':
+                            tag = 'p';
+                            break;
+
+                        case 'SPAN':
+                            tag = 'span';
+                            break;
+
+                        case 'BR':
+                            tag = NULL;
+                            break;
+
+                        default:
+                            tag = 'BR';
+
+                    }
+
+                const el = document.createElement(tag);
+
+                range.deleteContents();
+                range.insertNode(el);
+
+                if ('BR' === tag) {
+                    range.setStartAfter(el);
+                    range.setEndAfter(el);
+                } else {
+                    range.setStart(el, 0);
+                    range.setEnd(el, 0);
+                }
+
+                const ze = document.createTextNode("\u200B");
+                range.insertNode(ze);
+                range.setStartBefore(ze);
+                range.setEndBefore(ze);
+
+                selection.removeAllRanges();
+                selection.addRange(range);
+                ev.stopPropagation();
+            }
+
+            ta.value = ed.innerHTML;
+        }
+
+        ed.addEventListener('keydown', key13, false);*/
+	</script>
+	<style>
+		/*    .xrow {
+            display: block;
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            justify-content: space-between;
+        }
+
+        .xrow .col {
+            display: block;
+            flex: 1;
+        }
+
+        .xrow .col:first-child {
+            border-right: #669 1px dashed;
+            margin-right: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 300px;
+        }
+
+        #editable {
+            padding: 16px 9px;
+            border: 2px dashed #ddc;
+        }*/
+
+		/*---------------------------------------------------*/
+		section {
+			align-content: center;
+			width: 500px;
+			margin: 0 auto;
+			margin-top: 150px;
+			padding-left: 100px;
+			padding-right: 100px;
+			padding-bottom: 400px;
+		}
+
+		#title,
+		#title:empty:before {
+			font-size: xxx-large;
+			font-weight: bold;
+			border: none;
+			padding: 0;
+			margin-bottom: 30px;
+			content: attr(placeholder);
+		}
+
+		*,
+		*:focus {
+			outline: none;
+		}
+
+		div:focus {
+			background-color: #96e1ff;
+			color: black;
+		}
+
+		div {
+			transition: background-color 1s, color 1s;
+		}
+	</style>
+</html>
