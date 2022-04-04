@@ -4,5 +4,8 @@
 @tailwind utilities;
 
 :root {
-  background-color: rgb(190, 200, 211);
+  /* background-color: rgb(190, 200, 211); */
+}
+body {
+  height: 100vh;
 }
