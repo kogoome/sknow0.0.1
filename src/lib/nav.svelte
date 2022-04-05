@@ -1,24 +1,34 @@
 <script>
   // 네비 메뉴 자동 가져오기(사이드바 만들때 많이 쓴다고 함)
-  const pathArr = Object.keys(import.meta.glob("../routes/**"))
-	const nav = pathArr
-		.filter(path => path.includes(".svelte") && !path.includes("__"))
-		.map(path => {
-			const cleanPath = path.slice(9).replace(".svelte", "")
-			const title =
-				cleanPath.includes("/index") ?
-					cleanPath.slice(1).replace("/index", "")
-					: cleanPath.slice(1)
-			const link =
-				cleanPath.includes("/index") ?
-					cleanPath == "/index" ?
-						"/"
-						: cleanPath.replace("/index", "")
-					: cleanPath.replace("index", "")
-			return { title, link }
-		})
-	import {page} from '$app/stores'
-
+  // const pathArr = Object.keys(import.meta.glob("../routes/**"))
+	// const nav = pathArr
+	// 	.filter(path => path.includes(".svelte") && !path.includes("__"))
+	// 	.map(path => {
+	// 		const cleanPath = path.slice(9).replace(".svelte", "")
+	// 		const title =
+	// 			cleanPath.includes("/index") ?
+	// 				cleanPath.slice(1).replace("/index", "")
+	// 				: cleanPath.slice(1)
+	// 		const link =
+	// 			cleanPath.includes("/index") ?
+	// 				cleanPath == "/index" ?
+	// 					"/"
+	// 					: cleanPath.replace("/index", "")
+	// 				: cleanPath.replace("index", "")
+	// 		return { title, link }
+	// 	})
+    
+  const nav = [
+      { title: 'Home', link: '/' },
+      { title: 'dashboard', link: '/dashboard' },
+      { title: 'feature', link: '/feature' },
+      { title: 'login', link: '/login' },
+      { title: 'search', link: '/search' },
+      { title: 'time', link: '/time' },
+      { title: `user'sKnow`, link: `/kogoome'sKnow` }
+    ]
+      
+  import {page} from '$app/stores'
   let link 
   $: link=$page.url.pathname
 	console.log(nav)

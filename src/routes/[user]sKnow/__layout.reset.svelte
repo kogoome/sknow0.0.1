@@ -35,7 +35,7 @@
   <div class="flex-1">
     <button class="btn btn-ghost normal-case text-xl leading-loose">
       <a href="{origin}">
-        <span class="text-orange-400 text-2xl">{user}</span>'sKnow
+        <span class="text-orange-400 text-2xl">{user}</span>sKnow
       </a>
     </button>
 
