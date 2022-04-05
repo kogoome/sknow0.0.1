@@ -1,3 +1,7 @@
+<script>
+  import AnalogWatch from '$lib/analogWatch.svelte';
+</script>
+
 <svelte:head>
   <title>sNkow</title>
 </svelte:head>
@@ -9,7 +13,7 @@
 
 <div class="hello flex justify-center">
   <div class="flex flex-col justify-center">
-    <h1 class="text-3xl font-semibold">hello s<span class="text-orange-400">K</span>now</h1>
+    <AnalogWatch />
   </div>
 </div>
 <div class="hello flex justify-center">

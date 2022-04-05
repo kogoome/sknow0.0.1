@@ -40,7 +40,7 @@
     <a class="text-2xl font-bold p-3" href="/">s<span class="text-orange-400">K</span>now</a>
   </div>
   <div class="navbar-center hidden lg:flex">
-    <ul class="flex gap-5 p-0">
+    <ul class="flex gap-7 p-0">
 			{#each nav as item}
 				<li class="hover:text-[#ff9abc] transition-all duration-500">
 					<a class:active={link === item.link} class="text-2xl" href={item.link}>{item.title}</a>

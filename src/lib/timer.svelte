@@ -18,7 +18,7 @@
   // 목표시간 + 고정된 현재시간 - 가져오는 현재시간 = 남은 목표시간
   const goalTime = ()=>{
     const now = getTimee()
-    const goal = now.getTime()+ 600000 +2000
+    const goal = now.getTime()+ 600000 +1000
     return goal
   }
   const leftTime = () => {
@@ -30,7 +30,7 @@
       hour = Math.floor(left/3600000)
       minute = Math.floor(left/60000) - (hour*60)
       second = Math.floor(left/1000) - (hour*3600) - (minute*60)
-    }, 1000)
+    }, 950)
   }
   const currentTime = ()=>{
     clearInterval(timeUpdate)
