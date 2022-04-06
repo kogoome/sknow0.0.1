@@ -23,19 +23,10 @@
 </svelte:head>
 
 <div class="navbar">
-  <div class="flex-none">
-    <label for="my-drawer" class="btn btn-ghost drawer-button">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-5 h-5 stroke-current">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
-    </label>
-  </div>
+  <label for="my-drawer" class="btn btn-ghost drawer-button text-2xl">
+    <i class="fa-solid fa-bars"></i>
+  </label>
   <div class="flex-1">
-    <button class="btn btn-ghost normal-case text-xl leading-loose">
-      <a href="{origin}">
-        <i class="fa-solid fa-house"></i>
-      </a>
-    </button>
     <button class="btn btn-ghost normal-case text-xl leading-loose">
       <a href="{origin}/{user}">
         <span class="text-orange-400 text-2xl">{user}</span>'sKnow
@@ -62,15 +53,17 @@
       </ul>
     </div>
   </div>
-  <div class="flex-none">
-    <button class="btn btn-square btn-ghost">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-5 h-5 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path></svg>
+  <div class="flex-none pr-3">
+    <button class="btn btn-ghost normal-case text-xl leading-loose">
+      <a href="{origin}">
+        <i class="fa-solid fa-house"></i>
+      </a>
     </button>
   </div>
 </div>
 
 
-<div class="drawer">
+<div class="drawer" style="cursor:col-resize">
   <input id="my-drawer" type="checkbox" class="drawer-toggle">
   <div class="drawer-content">
       
@@ -80,16 +73,20 @@
     <label for="my-drawer" class="drawer-overlay"></label>
     <ul class="menu p-4 overflow-y-auto w-60 bg-base-100 text-base-content">
       <!-- Sidebar content here -->
-      <li><input type="text" placeholder="search"></li>
+      <li><input type="text" placeholder="search" class="bg-purple-100"></li>
       <li><hr></li>
+      <li><a href="{origin}/{user}/tutorial">Tutorial</a></li>
+      <li><a href="{origin}/{user}/library">Library</a></li>
+      <li>서랍기능 클릭하면 아래 리스트 출력</li>
+      <li>list</li>
+      <li>list</li>
       <li><a href="{origin}/{user}/write">Docs</a></li>
-      <li><hr></li>
-      <li>배포자료 list</li>
-      <li>개인자료 list</li>
-      <li>list1</li>
-      <li>list1</li>
-      <li>list1</li>
-      <li><hr></li>
+      <li>서랍기능 클릭하면 아래 리스트 출력</li>
+      <li>public list</li>
+      <li> list</li>
+      <li> list</li>
+      <li>private list</li>
+      <li> list</li>
 
       
     </ul>

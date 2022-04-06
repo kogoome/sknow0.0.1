@@ -17,12 +17,12 @@
 	// 				: cleanPath.replace("index", "")
 	// 		return { title, link }
 	// 	})
-  const username = 'kogoome'
+  const username = '닉네임'
   const nav = [
       { title: `${username}'sKnow`, link: `/${username}` },
-      { title: 'Team', link: '/team' },
-      { title: 'Agora', link: '/agora' },
       { title: 'School', link: '/school' },
+      { title: 'Agora', link: '/agora' },
+      { title: 'Team', link: '/team' },
       { title: 'Time', link: '/time' },
     ]
       
@@ -55,11 +55,11 @@
 			{/each}
     </ul>
   </div>
-  <div class="navbar-end">
+  <div class="navbar-end pr-3">
 		<div class="dropdown dropdown-end">
       <label tabindex="0" class="btn btn-ghost btn-circle avatar">
         <div class="w-10 rounded-full">
-          <img src="https://api.lorem.space/image/face?hash=33791" />
+          <img src="https://api.lorem.space/image/face?hash=33791" alt="" />
         </div>
       </label>
       <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
@@ -69,8 +69,8 @@
             <span class="badge">New</span>
           </a>
         </li>
-        <li><a>Settings</a></li>
-        <li><a>Logout</a></li>
+        <li><a href="#">Settings</a></li>
+        <li><a href="#">Logout</a></li>
       </ul>
     </div>
   </div>
