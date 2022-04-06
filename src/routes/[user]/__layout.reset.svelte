@@ -1,13 +1,12 @@
 <script context="module">
   export const load = async ({url, params})=>{
     const user = params.user
-    // const paths = url.pathname.split("/").filter(path => path.length>0)
-    const origin = url.origin
+    const {origin, pathname, href} = url
   
     return {
       props:{
         origin,
-        user
+        user,
       }
     }
   }
@@ -23,7 +22,6 @@
   <title>{user}</title>
 </svelte:head>
 
-
 <div class="navbar">
   <div class="flex-none">
     <label for="my-drawer" class="btn btn-ghost drawer-button">
@@ -35,7 +33,12 @@
   <div class="flex-1">
     <button class="btn btn-ghost normal-case text-xl leading-loose">
       <a href="{origin}">
-        <span class="text-orange-400 text-2xl">{user}</span>sKnow
+        <i class="fa-solid fa-house"></i>
+      </a>
+    </button>
+    <button class="btn btn-ghost normal-case text-xl leading-loose">
+      <a href="{origin}/{user}">
+        <span class="text-orange-400 text-2xl">{user}</span>'sKnow
       </a>
     </button>
 
@@ -77,8 +80,17 @@
     <label for="my-drawer" class="drawer-overlay"></label>
     <ul class="menu p-4 overflow-y-auto w-60 bg-base-100 text-base-content">
       <!-- Sidebar content here -->
-      <li><a>Item 1</a></li>
-      <li><a>Item 2</a></li>
+      <li><input type="text" placeholder="search"></li>
+      <li><hr></li>
+      <li><a href="{origin}/{user}/write">Docs</a></li>
+      <li><hr></li>
+      <li>배포자료 list</li>
+      <li>개인자료 list</li>
+      <li>list1</li>
+      <li>list1</li>
+      <li>list1</li>
+      <li><hr></li>
+
       
     </ul>
   </div>

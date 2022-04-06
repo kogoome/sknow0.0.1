@@ -11,9 +11,10 @@
         <div>공고</div>
         <div class="text-orange-400">사업제휴/제안</div>
         <div>운영방침</div>
+        <div>채용</div>
       </div>
-      <div class="flex justify-start text-slate-500 text-xl gap-6">
-        경기도 남양주시 창현로 19 503호
+      <div class="flex justify-start text-slate-600 text-lg gap-6">
+        경기도 남양주시 창현로
       </div>
     </div>
   </div>

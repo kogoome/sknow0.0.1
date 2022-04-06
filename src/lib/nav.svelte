@@ -17,21 +17,18 @@
 	// 				: cleanPath.replace("index", "")
 	// 		return { title, link }
 	// 	})
-    
+  const username = 'kogoome'
   const nav = [
-      { title: 'Home', link: '/' },
-      { title: 'dashboard', link: '/dashboard' },
-      { title: 'feature', link: '/feature' },
-      { title: 'login', link: '/login' },
-      { title: 'search', link: '/search' },
-      { title: 'time', link: '/time' },
-      { title: `user'sKnow`, link: `/kogoome'sKnow` }
+      { title: `${username}'sKnow`, link: `/${username}` },
+      { title: 'Team', link: '/team' },
+      { title: 'Agora', link: '/agora' },
+      { title: 'School', link: '/school' },
+      { title: 'Time', link: '/time' },
     ]
       
   import {page} from '$app/stores'
   let link 
   $: link=$page.url.pathname
-	console.log(nav)
 </script>
 
 <!-- <nav class="">

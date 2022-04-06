@@ -13,7 +13,7 @@
 
 <div class="hello flex justify-center">
   <div class="flex flex-col justify-center">
-    <AnalogWatch />
+    <!-- <AnalogWatch /> -->
   </div>
 </div>
 <div class="hello flex justify-center">
