@@ -1,6 +1,11 @@
-<div class="h-screen">
-  <div class="flex justify-start h-screen bg-blue-200">
-    <div class="relative top-20 left-52 flex flex-col text-2xl">
+<div class="bg-blue-200 h-screen">
+  <div class="flex justify-start h-full">
+    <div class="relative top-20 w-1/3 left-44 flex flex-col text-2xl">
+      <h1>목표</h1>
+      <div>웹 앱 제작</div>
+      <div>Eletron 데스크탑 앱 제작</div>
+      <div>Flutter 모바일 앱 제작</div>
+
       <h1>22.4.4</h1>
       <div>프로젝트 셋팅</div>
       <div>디비구조 셋팅</div>
@@ -12,23 +17,42 @@
       <div>네비메뉴 재정리</div>
       <div>각 페이지 별 목표점 작성</div>
       <div>개인작업공간 공간구조 작성</div>
-      <h1>22.4</h1>
+      <div>로드맵 페이지 작성</div>
+      <div>로그인 모달 작성</div>
+
+    </div>
+    <div class="relative top-20 w-1/3 flex flex-col text-2xl">
+      <h1>할일들</h1>
       <div>jwt Oauth 회원가입 기능</div>
       <div>로그인 기능과 세션</div>
+      <div>home 페이지, 스크롤 화면 로딩</div>
       <div>메모 작성기능 구현</div>
       <div>검색기능 구현</div>
       <div>제텔카스텔 정리, 서지시스템 구현</div>
-      <hr>
-      <div>Eletron 데스크탑 앱 제작</div>
-      <div>Flutter 모바일 앱 제작</div>
+    </div>
+    <div class="relative top-20 w-1/3 flex flex-col text-2xl">
+      <h1>배울것</h1>
+      <div>Canvas</div>
+      <div>무한스크롤</div> 
+      <div>Electron</div>
+      <div>Flutter</div>
+
     </div>
   </div>
 </div>
-
+<div class="bg-blue-200 h-screen">
+  <div class="flex justify-start h-full">
+    <div class="relative top-20 w-1/3 left-44 flex flex-col text-2xl">
+    </div>
+  </div>
+</div>
 <style>
   hr { border: 1px solid #000; }
   h1 {
     font-size: xx-large;
     font-weight: bolder;
+    padding-bottom: 10px;
+    padding-top: 10px;
   }
+
 </style>
