@@ -3,6 +3,7 @@
     <div class="relative w-1/3 flex flex-col text-2xl">
       <h1>목표</h1>
       <div>웹 앱 제작</div>
+      <div>리눅스 서버로 배포</div>
       <div>Eletron 데스크탑 앱 제작</div>
       <div>Flutter 모바일 앱 제작</div>
 
@@ -22,8 +23,25 @@
 
     </div>
     <div class="relative w-1/3 flex flex-col text-2xl">
+      <h1>22.4.7</h1>
+      <div>몽구스 스키마 작성</div>
+
+    </div>
+    <div class="relative w-1/3 flex flex-col text-2xl">
       <h1>할일들</h1>
-      <div>jwt Oauth 회원가입 기능</div>
+      <div>몽구스 구조 작성</div>
+      <div>몽구스 연결객체</div>
+      <div>쓰기 테스트</div>
+      <div>읽기 테스트</div>
+      <div>로그인 정보 http로 보내기</div>
+      <div>몽구스로 정보 읽어서 피드백 주기</div>
+      <div>회원가입 정보 post전송</div>
+      <div>몽구스로 회원 정보 유효성 검사</div>
+      <div>몽고디비에 회원 입력</div>
+      <div>로그인시 세션과 쿠키 사용, 로그인 유지</div>
+      <div>jwt회원가입</div>
+      <div>jwt로그인</div>
+      <hr>
       <div>로그인 기능과 세션</div>
       <div>home 페이지, 스크롤 화면 로딩</div>
       <div>메모 작성기능 구현</div>
@@ -39,10 +57,7 @@
       <div>Flutter</div>
 
     </div>
-    <div class="relative w-1/3 flex flex-col text-2xl">
-      <h1>더 적을거?</h1>
 
-    </div>
   </div>
 </div>
 <div class="bg-blue-200 h-screen"></div>
