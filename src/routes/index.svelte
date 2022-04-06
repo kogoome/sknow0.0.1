@@ -13,7 +13,7 @@
 
 <div class="hello flex justify-center">
   <div class="flex flex-col justify-center">
-    <!-- <AnalogWatch /> -->
+    생각을 정리하는 방법을 배웁니다.
   </div>
 </div>
 <div class="hello flex justify-center">

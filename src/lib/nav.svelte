@@ -23,6 +23,7 @@
       { title: 'School', link: '/school' },
       { title: 'Agora', link: '/agora' },
       { title: 'Team', link: '/team' },
+      { title: 'Roadmap', link: '/roadmap' },
       { title: 'Time', link: '/time' },
     ]
       
