@@ -1,3 +1,32 @@
+<script>
+  let id = "kogoome"
+  let password = "cksdnjs86@"
+  let message = ""
+  const login = async()=>{
+    const res = await fetch("/api/login",{
+      method:"POST",
+      body:JSON.stringify({ id, password }),
+    }).then(res=>res.json())
+    if(!res.id){
+      message = "로그인 실패"
+    } else {
+      message = res.id+"님"
+    }
+  }
+  let vaildId = ""
+  const vaildationId = (id)=>{
+    if(id.length < 4){ return "아이디는 4자 이상이어야 합니다." }
+    return "유효"
+  }
+  let vaildPassword = "영문, 숫자, 특수문자 포함 8~16자리"
+  const vaildationPw = (password)=>{
+    const reg = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}$/
+    return reg.test(password)?"유효":"입력형식이 올바르지 않습니다."
+  }
+  $: vaildId = vaildationId(id)
+  $: vaildPassword = vaildationPw(password)
+</script>
+
 <!-- The button to open modal -->
 <label for="my-modal-5" class="btn modal-button btn-ghost">Log in</label>
 
@@ -5,50 +34,52 @@
 <input type="checkbox" id="my-modal-5" class="modal-toggle">
 <div class="modal">
   <div class="modal-box w-11/12 max-w-3xl">
+    <!-- 제목 -->
     <h3 class="font-bold text-3xl pb-5">Log in.</h3>
-    <div class="flex justify-start">
+    <div class="flex justify-start gap-10">
+      <!-- 왼쪽 인풋 -->
       <div class="w-1/2">
-        <div class="form-control w-full max-w-xs">
-          <label class="label">
+        <div class="form-control w-full">
+          <div class="label">
             <span class="label-text">ID</span>
-            <span class="label-text-alt">Alt label</span>
-          </label>
-          <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs">
+            <span class="label-text-alt">{vaildId}</span>
+          </div>
+          <input type="text" placeholder="Type here" class="input input-bordered w-full " bind:value={id}>
         </div>
-        <div class="form-control w-full max-w-xs">
-          <label class="label">
+        <div class="form-control w-full">
+          <div class="label">
             <span class="label-text">password</span>
-            <span class="label-text-alt">Alt label</span>
-          </label>
-          <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs">
+            <span class="label-text-alt">{vaildPassword}</span>
+          </div>
+          <input type="password" placeholder="Type here" class="input input-bordered w-full" bind:value={password} maxlength="16">
+        </div>
+        <div class="pt-6">
+          <button class="btn btn-ghost w-full">로그인</button>
         </div>
       </div>
-      <div class="w-1/2 pl-10">
-        <div class="form-control w-full max-w-xs">
-          <label class="label opacity-0">
-            <span class="label-text">ID</span>
-            <span class="label-text-alt">Alt label</span>
-          </label>
-          <button class="btn btn-primary">Google</button>
+      <!-- 오른쪽 구글 카카오-->
+      <div class="w-1/2">
+        <div class="form-control w-full">
+          <div class="label ">
+            <span class="label-text opacity-0">ID</span>
+            <span class="label-text-alt">구글로 로그인</span>
+          </div>
+          <button class="btn bg-red-700 border-red-700">Google</button>
         </div>
-        <div class="form-control w-full max-w-xs">
-          <label class="label opacity-0">
-            <span class="label-text">ID</span>
-            <span class="label-text-alt">Alt label</span>
-          </label>
-          <button class="btn btn-secondary">Kakao</button>
+        <div class="form-control w-full">
+          <div class="label">
+            <span class="label-text opacity-0">ID</span>
+            <span class="label-text-alt">카카오로 로그인</span>
+          </div>
+          <button class="btn bg-yellow-500 border-yellow-500">Kakao</button>
+        </div>
+        <div class="pt-6 flex justify-between ">
+          <button class="btn btn-ghost">회원가입</button>
+          <button class="btn btn-ghost">비밀번호 찾기</button>
+          <label for="my-modal-5" class="btn btn-ghost">닫기</label>
         </div>
       </div>
     </div>
-    <div class="pt-6 w-full flex">
-      <div class="w-1/2 flex justify-start gap-4 ">
-        <button class="btn btn-ghost">회원가입</button>
-        <button class="btn btn-ghost">비밀번호 찾기</button>
-        <button class="btn btn-ghost">로그인</button>
-      </div>
-      <div class="ml-auto">
-        <label for="my-modal-5" class="btn btn-ghost">닫기</label>
-      </div>
-    </div>
+    <!-- 하단 -->
   </div>
 </div>

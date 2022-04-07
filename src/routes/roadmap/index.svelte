@@ -25,7 +25,7 @@
     <div class="relative w-1/3 flex flex-col text-2xl">
       <h1>22.4.7</h1>
       <div>몽구스 스키마 작성</div>
-
+      <div>유효성 검사 함수 작성</div>
     </div>
     <div class="relative w-1/3 flex flex-col text-2xl">
       <h1>할일들</h1>
