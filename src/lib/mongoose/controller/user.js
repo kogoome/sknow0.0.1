@@ -1,8 +1,16 @@
-const bcrypt = require('bcrypt')
-const { User, Userdata } = require('../model/model')
+import bcrypt from 'bcrypt'
+import schema from '../model/model.js'
+const { User, Userdata } = schema
+
+
+export const test = () => {
+  return "test"
+}
+
+console.log(test);
 
 // 회원가입 /acount/signup
-const userSignup = async (req, res) => {
+export const userSignup = async (req, res) => {
   const { email, weeksomId, passwordConfirm, nickname } = req.body
   // 비밀번호 해시값으로 변경( 사용법은 exam > bcryptTest.js참고 )
   const hashedPassword = await bcrypt.hashSync(passwordConfirm, 10)
@@ -93,13 +101,4 @@ const validPassword = async (req, res) => {
   } else {
     res.sendStatus(400)
   }
-}
-
-module.exports = {
-  userSignup,
-  viewUserProfile,
-  userList,
-  followUpdate,
-  validPassword,
-  chatUser,
 }

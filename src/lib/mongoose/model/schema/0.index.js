@@ -1,10 +1,7 @@
-// const Article = require('./article')
-// const Chat = require('./chat')
-// const Comment = require('./comment')
-const User = require('./user')
-const Userdata = require('./userdata')
+import User from './user.js'
+import Userdata from './userdata.js'
 
-module.exports = {
+export default {
   // Article,
   // Chat,
   // Comment,

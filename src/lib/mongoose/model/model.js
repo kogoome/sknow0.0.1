@@ -1,7 +1,8 @@
-//@ts-check
-const mongoose = require('mongoose')
-const schema = require('./schema/0.index')
-require('dotenv').config()
+import mongoose from 'mongoose'
+import schema from './schema/0.index.js'
+
+import dotenv from 'dotenv'
+dotenv.config()
 
 const db = mongoose.connection
 
@@ -23,7 +24,7 @@ const model = (() => {
       // useFindAndModify: true,
     })
     .then(() => {
-      console.log('22321expressDB 연결')
+      console.log('project sKnow 연결')
     })
     .catch((err) => console.log(err))
 
@@ -36,4 +37,4 @@ const model = (() => {
   return model
 })() // 함수 이후 ()붙이면 즉시실행함수로 익스포트하고 요청시마다 즉시실행
 
-module.exports = model
+export default model

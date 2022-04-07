@@ -13,7 +13,7 @@
   let link 
   $: link=$page.url.pathname
 
-  import Signup from '../signup.svelte'
+  import Signup from '../../signup.svelte'
   import Signin from './signin.svelte'
   import Profile from './profile.svelte'
 </script>

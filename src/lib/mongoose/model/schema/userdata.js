@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
 
 const Userdata = new mongoose.Schema({
   // 참조정보
@@ -19,4 +19,4 @@ const Userdata = new mongoose.Schema({
   versionKey: false,
 })
 
-module.exports = Userdata
+export default Userdata

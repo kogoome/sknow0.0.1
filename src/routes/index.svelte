@@ -1,5 +1,4 @@
 <script>
-  import AnalogWatch from '$lib/analogWatch.svelte';
 </script>
 
 <svelte:head>

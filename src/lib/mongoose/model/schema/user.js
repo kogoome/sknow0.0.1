@@ -1,5 +1,4 @@
-const mongoose = require('mongoose')
-const passportLocalMongoose = require('passport-local-mongoose')
+import mongoose from 'mongoose'
 
 const User = new mongoose.Schema({
   // 로그인정보
@@ -15,9 +14,6 @@ const User = new mongoose.Schema({
     default:
       'https://image-upload-server1.s3.ap-northeast-2.amazonaws.com/user.jpg',
   },
-
 })
 
-User.plugin(passportLocalMongoose)
-
-module.exports = User
+export default User

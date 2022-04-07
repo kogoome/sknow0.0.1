@@ -1,11 +1,13 @@
 <script>
   let id = "kogoome"
   let password = "cksdnjs86@"
-  let message = ""
+  let message = "msg"
   const login = async()=>{
+    const body = JSON.stringify({ id, password })
+    console.log("보내기 전 바디데이터",body);
     const res = await fetch("/api/login",{
       method:"POST",
-      body:JSON.stringify({ id, password }),
+      body,
     }).then(res=>res.json())
     if(!res.id){
       message = "로그인 실패"
@@ -25,6 +27,7 @@
   }
   $: vaildId = vaildationId(id)
   $: vaildPassword = vaildationPw(password)
+  $: console.log(message) // 확인용 로그
 </script>
 
 <!-- The button to open modal -->
@@ -54,7 +57,7 @@
           <input type="password" placeholder="Type here" class="input input-bordered w-full" bind:value={password} maxlength="16">
         </div>
         <div class="pt-6">
-          <button class="btn btn-ghost w-full">로그인</button>
+          <button class="btn btn-ghost w-full" on:click={login}>로그인</button>
         </div>
       </div>
       <!-- 오른쪽 구글 카카오-->
