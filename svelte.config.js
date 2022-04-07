@@ -1,5 +1,6 @@
 import preprocess from 'svelte-preprocess';
 import adapter from '@sveltejs/adapter-auto';
+import path from 'path';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -8,9 +9,11 @@ const config = {
 		vite: {
 			resolve: {
 				alias: {
-					$config: './src/lib/config',
-					$feature: './src/lib/featureComponenet',
-					$util: './src/lib/util',
+					$config: path.resolve('./src/lib/config'),
+					$feature: path.resolve('./src/lib/featureComponenet'),
+					$util: path.resolve('./src/lib/util'),
+					$controller: path.resolve('./src/lib/mongoose/controller'),
+					$model: path.resolve('./src/lib/mongoose/model'),
 				}
 			}
 		}

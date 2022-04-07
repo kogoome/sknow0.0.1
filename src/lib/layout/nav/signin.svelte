@@ -5,7 +5,7 @@
   const login = async()=>{
     const body = JSON.stringify({ id, password })
     console.log("보내기 전 바디데이터",body);
-    const res = await fetch("/api/login",{
+    const res = await fetch("/api/acount/login",{
       method:"POST",
       body,
     }).then(res=>res.json())
@@ -27,7 +27,13 @@
   }
   $: vaildId = vaildationId(id)
   $: vaildPassword = vaildationPw(password)
-  $: console.log(message) // 확인용 로그
+  
+  const jwtGoogle = ()=> {
+    
+  }
+  const jwtKakao = ()=> {
+
+  }
 </script>
 
 <!-- The button to open modal -->

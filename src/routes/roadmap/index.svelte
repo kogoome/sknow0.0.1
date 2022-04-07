@@ -26,11 +26,12 @@
       <h1>22.4.7</h1>
       <div>몽구스 스키마 작성</div>
       <div>유효성 검사 함수 작성</div>
+      <div>몽구스 함수 제외 작성, 디비연결 확인. </div>
+      <div>패스포트 사용불가로인해 로컬 로그인을 제외</div>
+      <div>jwt로그인, 회원가입필요</div>
     </div>
     <div class="relative w-1/3 flex flex-col text-2xl">
       <h1>할일들</h1>
-      <div>몽구스 구조 작성</div>
-      <div>몽구스 연결객체</div>
       <div>쓰기 테스트</div>
       <div>읽기 테스트</div>
       <div>로그인 정보 http로 보내기</div>

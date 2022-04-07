@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import passport from 'passport-local-mongoose'
 
 const User = new mongoose.Schema({
   // 로그인정보
@@ -14,6 +15,9 @@ const User = new mongoose.Schema({
     default:
       'https://image-upload-server1.s3.ap-northeast-2.amazonaws.com/user.jpg',
   },
+  versionKey: false,
 })
+// console.log(passport)
+User.plugin(passport)
 
 export default User
