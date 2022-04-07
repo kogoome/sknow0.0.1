@@ -7,3 +7,8 @@ node_modules
 .env.*
 !.env.example
 comp
+src/routes/acount/login/index.svelte
+src/lib/request.ts
+src/routes/acount/register/index.svelte
+.gitignore
+package-lock.json
