@@ -28,6 +28,7 @@
       <div>유효성 검사 함수 작성</div>
       <div>몽구스 함수 제외 작성, 디비연결 확인. </div>
       <div>패스포트 사용불가로인해 로컬 로그인을 제외</div>
+      <div>패스포트 사용가능</div>
       <div>jwt로그인, 회원가입필요</div>
     </div>
     <div class="relative w-1/3 flex flex-col text-2xl">

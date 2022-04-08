@@ -39,7 +39,7 @@
     <ul class="flex gap-7 p-0">
 			{#each nav as item}
 				<li class="hover:text-[#ff9abc] transition-all duration-500">
-					<a class:active={link === item.link} class="text-2xl" href={item.link}>{item.title}</a>
+					<a class:active={link === item.link} class="text-xl" href={item.link}>{item.title}</a>
 				</li>
 			{/each}
     </ul>
