@@ -1,3 +1,7 @@
+<svelte:head>
+  <title>Team</title>
+</svelte:head>
+
 <div class="h-screen">
   <div class="flex justify-center h-96 bg-purple-200">
     협업페이지

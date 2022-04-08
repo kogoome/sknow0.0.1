@@ -1,3 +1,7 @@
+<svelte:head>
+  <title>Agora</title>
+</svelte:head>
+
 <div class="h-screen bg-orange-100 flex justify-start">
   <div>
     <div class="p-10">

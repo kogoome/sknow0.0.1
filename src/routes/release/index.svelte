@@ -1,3 +1,7 @@
+<svelte:head>
+  <title>ReleaseNote</title>
+</svelte:head>
+
 <div class="bg-blue-200 h-screen">
   <div class="flex justify-start h-full p-20">
     <div class="relative w-1/3 flex flex-col text-2xl">
@@ -30,6 +34,9 @@
       <div>패스포트 사용불가로인해 로컬 로그인을 제외</div>
       <div>패스포트 사용가능</div>
       <div>jwt로그인, 회원가입필요</div>
+      <h1>22.4.8</h1>
+      <div>로그인페이지 추가</div>
+      <div>회원가입페이지 추가</div>
     </div>
     <div class="relative w-1/3 flex flex-col text-2xl">
       <h1>할일들</h1>

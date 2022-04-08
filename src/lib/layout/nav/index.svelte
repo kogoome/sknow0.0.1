@@ -1,11 +1,11 @@
 <script>
-  const username = '닉네임'
+  const username = ''
   const nav = [
       { title: `${username}'sKnow`, link: `/${username}` },
       { title: 'School', link: '/school' },
       { title: 'Agora', link: '/agora' },
       { title: 'Team', link: '/team' },
-      { title: 'Roadmap', link: '/roadmap' },
+      { title: 'ReleaseNote', link: '/release' },
       { title: 'Time', link: '/time' },
     ]
       
@@ -13,21 +13,8 @@
   let link 
   $: link=$page.url.pathname
 
-  import Signup from '../../signup.svelte'
-  import Signin from './signin.svelte'
-  import Profile from './profile.svelte'
+  import Acount from './acount.svelte'
 </script>
-
-<!-- <nav class="">
-	<ul class="flex list-none justify-center gap-6 pb-7 pt-7">
-    {#each nav as item}
-      <li class="hover:text-[#ff9abc] transition-all duration-500">
-        <a class:active={link === item.link} class="text-2xl" href={item.link}>{item.title}</a>
-      </li>
-		{/each}
-  </ul>
-</nav> -->
-
 
 <div class="navbar">
   <div class="navbar-start">
@@ -46,15 +33,14 @@
   </div>
   <div class="navbar-end pr-3">
   <!-- --마지막------------------------------------------ -->
-    <Signin />
-    <Profile />
+    <Acount/>
   </div>
 </div>
 
 <style>
   .active {
     text-decoration: underline;
-		font-size: 1.5rem;
+		font-size: 1.25rem;
 		font-weight: bold;
     color: #ff9abc;
 		/* transition: all 0.5s; */
