@@ -1,4 +1,5 @@
 <script>
+  let email = ""
   let id = ""
   let password = ""
   let password2 = ""
@@ -61,6 +62,14 @@
         <div class="flex justify-start gap-10">
           <!-- 왼쪽 인풋 -->
           <div class="w-1/2">
+            <!-- 이메일 입력 -->
+            <div class="form-control w-full">
+              <div class="label">
+                <span class="label-text">E-mail</span>
+                <span class="label-text-alt"></span>
+              </div>
+              <input type="text" placeholder="Type here" class="input input-bordered w-full " bind:value={email}>
+            </div>
             <!-- 아이디 입력 -->
             <div class="form-control w-full">
               <div class="label">

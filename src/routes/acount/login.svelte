@@ -90,7 +90,6 @@
               <button class="btn bg-yellow-500 border-yellow-500">Kakao</button>
             </div>
             <div class="pt-6 flex justify-between ">
-              <button class="btn btn-ghost"><a href="/acount/signup">회원가입</a></button>
               <button class="btn btn-ghost">비밀번호 찾기</button>
               <label for="my-modal-5" class="btn btn-ghost">닫기</label>
             </div>
