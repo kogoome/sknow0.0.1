@@ -2,8 +2,10 @@ import { writable } from "svelte/store";
 import { browser } from "$app/env";
 
 
-// 문자열 입력
+// 로컬스토리지에 다음 변수를 저장
 export const userName = writable(browser && localStorage.getItem("userName") || "kogoome");
+// 로컬스토리지 userName의 값을 실시간 변경 가능하게해주는 함수.
+// html상에 바인딩해서 변경시키면 반영된다.
 userName.subscribe(name => {
   browser && localStorage.setItem("userName", name);
 })
@@ -15,3 +17,4 @@ export const fruits = writable(storedFruits)
 fruits.subscribe((fruit) => {
   browser && (localStorage.fruits = JSON.stringify(fruit))
 })
+

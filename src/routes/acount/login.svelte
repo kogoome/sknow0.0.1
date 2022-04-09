@@ -1,7 +1,9 @@
 <script>
-  let idmail = ""
-  let password = ""
-  let message = ""
+  import {page} from '$app/stores'
+
+  let idmail = "lion"
+  let password = "test0001@"
+  let message = $page.stuff.loginId || ""
   let vaildId = ""
   let vaildPassword = ""
 

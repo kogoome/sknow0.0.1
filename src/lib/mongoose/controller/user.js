@@ -1,13 +1,40 @@
 import bcrypt from 'bcrypt'
+import { v4 as uuidv4 } from 'uuid'
 import schema from '../model/model.js'
 const { User } = schema
 
-const idToProfile = async (id) => {
+let sessions = [];
+
+const createSession = (id) => {
+  const session = {
+    sknowSession: uuidv4(),
+    id,
+  };
+  sessions.push(session);
+  return Promise.resolve(session);
+};
+
+const getSession = (sknowSession) => {
+  const session = sessions.filter((session) =>
+    session.sknowSession === sknowSession
+  )
+  if (!session) return Promise.resolve(null);
+  return Promise.resolve(session[0]);
+};
+
+const removeSession = (id) => {
+  const session = sessions.find((session) => session.id === id);
+  if (!session) return Promise.reject(new Error('Session not found'));
+  sessions = sessions.filter((session) => session.id !== id);
+  return Promise.resolve(session);
+};
+
+const getUserById = async (id) => {
   const userProfile = await User.find({ id })
   return userProfile[0]
 }
 
-const emailToProfile = async (email) => {
+const getUserByEmail = async (email) => {
   const userProfile = await User.find({ email })
   return userProfile[0]
 }
@@ -26,6 +53,8 @@ const login = async (id, email, password) => {
   const name = user.id
   return { status, name }
 }
+
+
 
 // const validPassword = async (req, res) => {
 //   const { pw } = req.body
@@ -98,10 +127,13 @@ const login = async (id, email, password) => {
 // }
 
 
-
+// 이렇게 모아서 내보내면 읽을때 한방에 읽어서 편함.
 const userfunc = {
-  idToProfile,
-  emailToProfile,
+  createSession,
+  getSession,
+  removeSession,
+  getUserById,
+  getUserByEmail,
   createAcount,
   login,
   // chatUser,

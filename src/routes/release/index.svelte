@@ -40,13 +40,12 @@
       <h1>22.4.9</h1>
       <div>회원 첫 가입</div>
       <div>로그인 성공</div>
+      <div>세션 완성!!</div>
     </div>
     <div class="relative w-1/3 flex flex-col text-2xl">
       <h1>할일들</h1>
-      <div>로그인시 세션과 쿠키 사용, 로그인 유지</div>
       <div>jwt회원가입</div>
       <div>jwt로그인</div>
-      <hr>
       <div>home 페이지, 스크롤 화면 로딩</div>
       <div>메모 작성기능 구현</div>
       <div>검색기능 구현</div>

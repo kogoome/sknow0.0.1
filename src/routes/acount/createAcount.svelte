@@ -1,11 +1,12 @@
 <script>
+  import {page} from '$app/stores'
   // 바인딩 변수
   let email = "test1@kakao.com"
   let id = "lion"
   let nickname = "lion"
   let password = "test0001@"
   let password2 = "test0001@"
-  let message = "Lion" // 기본값 ""
+  let message = $page.stuff.loginId || ""
   // 유효 메시지
   let vaildEmail = "고유값"
   let vaildId = "고유값"
