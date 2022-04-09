@@ -2,17 +2,14 @@ import controller from '$controller/0.index.js'
 const { User } = controller
 
 export const post = async ({ request }) => {
-  const { id, password } = await request.json()
-  console.log(password);
-  console.log(id);
-
-  // 몽구스 로그인 미들웨어
-  // 연결 확인 
+  const { id, email, password } = await request.json()
+  const { status, name } = await User.login(id, email, password)
 
   return {
-    status: 200,
+    status,
     body: {
-      id
+      status,
+      name
     }
   }
 }

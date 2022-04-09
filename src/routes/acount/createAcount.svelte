@@ -5,7 +5,7 @@
   let nickname = "lion"
   let password = "test0001@"
   let password2 = "test0001@"
-  let message = "Lion"
+  let message = "Lion" // 기본값 ""
   // 유효 메시지
   let vaildEmail = "고유값"
   let vaildId = "고유값"
@@ -71,7 +71,7 @@
   <div class="flex flex-col justify-center bg-orange-50 h-1/2">
   <div class="flex justify-center">
       <div class="w-1/2">
-        {#if message=="msg"}
+        {#if message==""}
           <div id="formInput">
             <!-- 제목 -->
             <h3 class="font-bold text-3xl pb-5">Create acount.</h3>
