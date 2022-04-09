@@ -1,4 +1,7 @@
 <script>
+import {userName, fruits} from "../stores"
+import {session} from "$app/stores"
+
 </script>
 
 <svelte:head>
@@ -13,6 +16,8 @@
 <div class="hello flex justify-center">
   <div class="flex flex-col justify-center">
     <h1 class="text-3xl font-semibold">someth<span class="text-orange-400">i</span>nk</h1>
+    {$session}
+    {$userName}
   </div>
 </div>
 <div class="hello flex justify-center">

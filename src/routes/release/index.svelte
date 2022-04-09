@@ -39,21 +39,14 @@
       <div>회원가입페이지 추가</div>
       <h1>22.4.9</h1>
       <div>회원 첫 가입</div>
+      <div>로그인 성공</div>
     </div>
     <div class="relative w-1/3 flex flex-col text-2xl">
       <h1>할일들</h1>
-      <div>쓰기 테스트</div>
-      <div>읽기 테스트</div>
-      <div>로그인 정보 http로 보내기</div>
-      <div>몽구스로 정보 읽어서 피드백 주기</div>
-      <div>회원가입 정보 post전송</div>
-      <div>몽구스로 회원 정보 유효성 검사</div>
-      <div>몽고디비에 회원 입력</div>
       <div>로그인시 세션과 쿠키 사용, 로그인 유지</div>
       <div>jwt회원가입</div>
       <div>jwt로그인</div>
       <hr>
-      <div>로그인 기능과 세션</div>
       <div>home 페이지, 스크롤 화면 로딩</div>
       <div>메모 작성기능 구현</div>
       <div>검색기능 구현</div>
