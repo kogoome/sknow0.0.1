@@ -12,7 +12,7 @@
 
 <div class="hello flex justify-center">
   <div class="flex flex-col justify-center">
-    생각을 정리하는 방법
+    <h1 class="text-3xl font-semibold">someth<span class="text-orange-400">i</span>nk</h1>
   </div>
 </div>
 <div class="hello flex justify-center">

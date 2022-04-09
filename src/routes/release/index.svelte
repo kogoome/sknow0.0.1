@@ -37,6 +37,8 @@
       <h1>22.4.8</h1>
       <div>로그인페이지 추가</div>
       <div>회원가입페이지 추가</div>
+      <h1>22.4.9</h1>
+      <div>회원 첫 가입</div>
     </div>
     <div class="relative w-1/3 flex flex-col text-2xl">
       <h1>할일들</h1>

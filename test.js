@@ -1,17 +1,13 @@
-import passport from 'passport-local-mongoose';
+import controller from './src/lib/mongoose/controller/0.index.js'
+const { User } = controller
 
-console.log(passport)
+const email = "kogoome@kakao.com"
+const id = "kogoome"
+
+const request = { email, id }
+
+const result = User.checkEigntest(request)
+console.log(result[0]);
 
 
 
-const config = {
-	content: ['./src/**/*.{html,js,svelte,ts}'],
-
-	theme: {
-		extend: {}
-	},
-
-	plugins: [require("daisyui")]
-};
-
-module.exports = config;
