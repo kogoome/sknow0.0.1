@@ -1,5 +1,7 @@
 <script>
-  const username = ''
+  import {page} from '$app/stores'
+
+  const username = $page.stuff.loginId || ""
   const nav = [
       { title: `${username}'sKnow`, link: `/${username}` },
       { title: 'School', link: '/school' },
@@ -9,7 +11,6 @@
       { title: 'Time', link: '/time' },
     ]
       
-  import {page} from '$app/stores'
   let link 
   $: link=$page.url.pathname
 
