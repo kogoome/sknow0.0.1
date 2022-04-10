@@ -44,6 +44,8 @@
     </div>
     <div class="relative w-1/3 flex flex-col text-2xl">
       <h1>할일들</h1>
+      <div>네비바에 회원가입 로그인 => 계정으로 변경시키고, 클릭시 메뉴생성 ui, 계정관리도구 넣기</div>
+      <div>로그인시 자기 정보를 보여주게끔</div>
       <div>jwt회원가입</div>
       <div>jwt로그인</div>
       <div>home 페이지, 스크롤 화면 로딩</div>

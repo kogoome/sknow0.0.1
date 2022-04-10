@@ -23,13 +23,15 @@
       const id = isEmail?"":idmail
       const email = isEmail?idmail:""
       const body = JSON.stringify({ id, email, password })
-      const res = await fetch("/api/acount/login",{
+      const res = await fetch("/api/acount/setSession_login",{
         method:"POST",
         body,
       }).then(res=>res.json()).catch(err=>console.log(err))
       if(res.status==200){
         message = res.name
+        window.location.reload()
       } else {
+        // TODO 로그인 실패 문구 띄워주기
         console.log("status 400")
       }
     }

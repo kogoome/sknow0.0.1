@@ -1,5 +1,7 @@
 <script>
-  import {page} from '$app/stores'
+  import {get} from 'svelte/store';
+  import {page, session} from '$app/stores'
+  const sessionId = get(session).user.sknowSession
 
   const username = $page.stuff.loginId || ""
   const nav = [
@@ -14,7 +16,21 @@
   let link 
   $: link=$page.url.pathname
 
-  import Acount from './acount.svelte'
+  const logout = async () => {
+    // console.log("1 로그아웃 버튼 클릭");
+    // console.log("2 sessionId: ", sessionId);
+    const res = await fetch('/api/acount/removeSession', {
+      method: 'POST',
+      body: JSON.stringify({
+        sessionId
+      })
+    }).then(res => res.json())
+    .then(res => {
+      console.log(res.message)
+      window.location.href = '/acount/login'
+    })
+    .catch(err=>console.log(err))
+  }
 </script>
 
 <div class="navbar">
@@ -34,7 +50,26 @@
   </div>
   <div class="navbar-end pr-3">
   <!-- --마지막------------------------------------------ -->
-    <Acount/>
+    {#if username}
+    <div class="dropdown dropdown-end">
+      <div tabindex="0" class="btn btn-circle btn-ghost m-1">{username}</div>
+      <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+        <li><a>🍔 Profile</a></li>
+        <li><a>🥞 Edit profile</a></li>
+        <li><div on:click={logout}>🥫 Log out</div></li>
+        <li><a>🍖 Etc...</a></li>
+      </ul>
+    </div>
+      {:else}
+      <div class="dropdown dropdown-end">
+        <div tabindex="0" class="btn btn-circle btn-ghost m-1">Acount</div>
+        <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+          <li><a href="/acount/login">🍔 Login</a></li>
+          <li><a href="/acount/createAcount">🥞 Create Acount</a></li>
+          <li><a>🍖 비번변경</a></li>
+        </ul>
+      </div>
+    {/if}
   </div>
 </div>
 
@@ -44,6 +79,6 @@
 		font-size: 1.25rem;
 		font-weight: bold;
     color: #ff9abc;
-		/* transition: all 0.5s; */
+		/* transition: all 0.5s;  */
   }
 </style>

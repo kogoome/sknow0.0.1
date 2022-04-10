@@ -15,17 +15,19 @@ const createSession = (id) => {
 };
 
 const getSession = (sknowSession) => {
-  const session = sessions.filter((session) =>
+  const session = sessions.find((session) =>
     session.sknowSession === sknowSession
   )
   if (!session) return Promise.resolve(null);
-  return Promise.resolve(session[0]);
+  return Promise.resolve(session);
 };
 
-const removeSession = (id) => {
-  const session = sessions.find((session) => session.id === id);
+const removeSession = (sknowSession) => {
+  // console.log("5 세션삭제 함수 실행중")
+  const session = sessions.find((session) => session.sknowSession === sknowSession);
   if (!session) return Promise.reject(new Error('Session not found'));
-  sessions = sessions.filter((session) => session.id !== id);
+  sessions = sessions.filter((session) => session.sknowSession !== sknowSession);
+  // console.log("6. 삭제후 세션 배열: ", sessions);
   return Promise.resolve(session);
 };
 
