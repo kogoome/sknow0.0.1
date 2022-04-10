@@ -41,11 +41,15 @@
       <div>회원 첫 가입</div>
       <div>로그인 성공</div>
       <div>세션 완성!!</div>
+      <div>네비바에 회원가입 로그인 => 계정으로 변경시키고, 클릭시 메뉴생성 ui, 계정관리도구 넣기</div>
     </div>
     <div class="relative w-1/3 flex flex-col text-2xl">
       <h1>할일들</h1>
-      <div>네비바에 회원가입 로그인 => 계정으로 변경시키고, 클릭시 메뉴생성 ui, 계정관리도구 넣기</div>
-      <div>로그인시 자기 정보를 보여주게끔</div>
+      <div>스노우 페이지 작성</div>
+      <div>앱 드로어부터 고치기</div>
+      <div>상단바도 너무 두꺼워. ide 처럼 만들어보자.</div>
+      <div></div>
+      <div></div>
       <div>jwt회원가입</div>
       <div>jwt로그인</div>
       <div>home 페이지, 스크롤 화면 로딩</div>

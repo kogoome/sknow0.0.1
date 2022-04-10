@@ -9,7 +9,10 @@
 		"preview": "svelte-kit preview",
 		"prepare": "svelte-kit sync",
 		"lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
-		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
+		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
+		"preSmui": "npm run smui-theme-light && npm run smui-theme-dark",
+		"smui-theme-light": "smui-theme compile static/smui.css -i src/theme",
+		"smui-theme-dark": "smui-theme compile static/smui-dark.css -i src/theme/dark"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "next",
@@ -24,11 +27,12 @@
 		"prettier-plugin-svelte": "^2.5.0",
 		"svelte": "^3.44.0",
 		"svelte-awesome": "^2.4.6",
+		"svelte-popperjs": "^1.2.8",
 		"svelte-preprocess": "^4.10.1",
 		"tailwindcss": "^3.0.12"
 	},
 	"dependencies": {
-		"@rgossiaux/svelte-headlessui": "^1.0.0-beta.12",
+		"@popperjs/svelte": "^0.1.1",
 		"bcrypt": "^5.0.1",
 		"cookie": "^0.4.2",
 		"daisyui": "^2.13.6",
@@ -37,6 +41,7 @@
 		"mongoose": "^6.2.10",
 		"passport": "^0.5.2",
 		"passport-local-mongoose": "^7.0.0",
+		"tw-elements": "^1.0.0-alpha12",
 		"uuid": "^8.3.2"
 	}
 }

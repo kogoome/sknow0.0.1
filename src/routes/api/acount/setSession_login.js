@@ -11,10 +11,8 @@ export const post = async ({ request }) => {
   // DB confirm
   const { status, name } = await User.login(id, email, password)
   if (status == 200) {
-    console.log("로그인 성공")
     // set Session
     const session = await User.createSession(name)
-    console.log("sessionId: ", session.sknowSession);
 
     const headers = {
       // set Cookie
