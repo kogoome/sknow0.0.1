@@ -45,6 +45,8 @@
     </div>
     <div class="relative w-1/3 flex flex-col text-2xl">
       <h1>할일들</h1>
+      <div>theme change사용해보고, 토글변경만들기</div>
+      <div>노트작성 페이지 ui 만들기</div>
       <div>스노우 페이지 작성</div>
       <div>앱 드로어부터 고치기</div>
       <div>상단바도 너무 두꺼워. ide 처럼 만들어보자.</div>
