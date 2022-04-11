@@ -74,7 +74,6 @@
 <div class="bg-blue-200 h-screen"></div>
 <div class="bg-blue-200 h-screen"></div>
 <style>
-  hr { border: 1px solid #000; }
   h1 {
     font-size: xx-large;
     font-weight: bolder;
