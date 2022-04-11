@@ -6,6 +6,7 @@
     height: 200px;
     overflow: auto;
   }
+
 </style>
 
 레이아웃 리셋이 있으면 목차 활성화 안댐 상위 css로 조절하는듯

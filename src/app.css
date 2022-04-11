@@ -3,6 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
   /* background-color: rgb(190, 200, 211); */
 }
@@ -10,7 +11,7 @@ body {
   height: 100vh;
 }
 
-/* popperjs */
+/* svelte-popperjs */
 #tooltip {
   background: rgb(255, 255, 255);
   color: rgb(10, 10, 10);
