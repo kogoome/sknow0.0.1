@@ -40,14 +40,54 @@
 <div id="container" class="flex flex-row h-screen">
   <!-- 사이드바 -->
   <div id="sidebar" class="flex-none w-64 max-w-6xl bg-secondary-focus h-screen top-0 left-0 overflow-x-hidden transition-all duration-500">
-    <div class="flex flex-col justify-start pl-3 pr-3">
+    <div class="flex flex-col justify-start pl-1">
       <div class="text-2xl text-white pt-3 pb-3">
         {$page.stuff.user}'s<span class="text-orange-500">K</span>now
       </div>
-      <a href="#">Search</a>
-      <a href="#">목차</a>
-      <a href="#">Library</a>
-      <a href="#">mytext</a>
+      <!-- 서치바 -->
+      <div class="relative z-0 w-full group drop-shadow-md mb-2">
+        <!-- svelte-ignore a11y-mouse-events-have-key-events -->
+        <input type="email" name="search" class="block pt-1 h-12 px-5 w-full bg-base-100 rounded-lg text-xl text-center bg-transparent border-0 border-b-4 border-warning appearance-none focus:outline-none focus:ring-0 peer" placeholder=" " required on:mouseover={(e)=>e.target.
+        // @ts-ignore
+        focus()} />
+        <label for="search" class="absolute px-2 duration-300 transform -translate-y-6 scale-75 top-3 z-10 origin-[0] peer-focus:left-0 peer-focus:text-error peer-placeholder-shown:scale-100 whitespace-nowrap peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 text-warning text-xl ">
+          SEARCH <kbd class="kbd kbd-sm">ctrl</kbd>+<kbd class="kbd kbd-sm">k</kbd>
+        </label>
+      </div>
+      <div tabindex="0" class="collapse collapse-arrow">
+        <div class="collapse-title bg-secondary text-center text-lg"> 목차 </div>
+        <div class="collapse-content"> 
+          <ul class="steps steps-vertical">
+            <li class="step step-primary">Register</li>
+            <li class="step step-primary">Choose plan</li>
+            <li class="step">Purchase</li>
+            <li class="step">Receive Product</li>
+          </ul>
+        </div>
+      </div>
+      <div tabindex="0" class="collapse collapse-arrow">
+        <div class="collapse-title bg-secondary text-center text-lg"> 라이브러리 </div>
+        <div class="collapse-content"> 
+          <ul class="steps steps-vertical">
+            <li class="step step-primary">Register</li>
+            <li class="step step-primary">Choose plan</li>
+            <li class="step">Purchase</li>
+            <li class="step">Receive Product</li>
+          </ul>
+        </div>
+      </div>
+      <div tabindex="0" class="collapse collapse-arrow">
+        <div class="collapse-title bg-secondary text-center text-lg"> 컨텐츠 </div>
+        <div class="collapse-content"> 
+          <ul class="steps steps-vertical">
+            <li class="step step-primary">Register</li>
+            <li class="step step-primary">Choose plan</li>
+            <li class="step">Purchase</li>
+            <li class="step">Receive Product</li>
+          </ul>
+        </div>
+      </div>
+
     </div>
   </div>
   <!-- 리사이져 -->
@@ -61,21 +101,25 @@
     <div class="flex-none w-full h-auto bg-neutral flex flex-row ">
       <!-- 네비 왼쪽 -->
       <div class="flex-none">
-        <button type="button"  class="px-5 h-full py-1 bg-secondary-focus text-white font-medium text-xs uppercase shadow-md hover:bg-secondary hover:shadow-lg  transition duration-150 ease-in-out" on:click={openSidebar} >
+        <button type="button"  class="px-5 h-full py-1 bg-secondary-focus text-white font-medium text-xs uppercase shadow-md hover:bg-secondary hover:shadow-lg transition duration-150 ease-in-out active:bg-error" on:click={openSidebar} >
           <i id="menuIcon" class={manuIconClassName}></i> menu
         </button>
-        <button type="button" class="px-5 h-full py-1 bg-secondary-focus text-white font-medium text-xs uppercase shadow-md hover:bg-secondary hover:shadow-lg focus:bg-secondary focus:shadow-lg focus:outline-none focus:ring-0 active:bg-secondary-focus active:shadow-lg transition duration-150 ease-in-out" >
-          1
+        <button type="button"  class="px-5 h-full py-1 bg-secondary-focus text-white font-medium text-xs uppercase shadow-md hover:bg-secondary hover:shadow-lg transition duration-150 ease-in-out active:bg-error" >
+          <a href="/">home</a>
         </button>
-        <button type="button" class="px-5 h-full py-1 bg-secondary-focus text-white font-medium text-xs uppercase shadow-md hover:bg-secondary hover:shadow-lg focus:bg-secondary focus:shadow-lg focus:outline-none focus:ring-0 active:bg-secondary-focus active:shadow-lg transition duration-150 ease-in-out" >
-          2
+        <button type="button" class="px-5 h-full py-1 bg-success-content text-white font-medium text-xs uppercase shadow-md hover:bg-success hover:shadow-lg focus:bg-success focus:shadow-lg focus:outline-none focus:ring-0 active:bg-warning active:shadow-lg transition duration-150 ease-in-out" >
+          1 tap
         </button>
-        <button type="button" class="px-5 h-full py-1 bg-secondary-focus text-white font-medium text-xs uppercase shadow-md hover:bg-secondary hover:shadow-lg focus:bg-secondary focus:shadow-lg focus:outline-none focus:ring-0 active:bg-secondary-focus active:shadow-lg transition duration-150 ease-in-out" >
-          3
+        <button type="button" class="px-5 h-full py-1 bg-success-content text-white font-medium text-xs uppercase shadow-md hover:bg-success hover:shadow-lg focus:bg-success focus:shadow-lg focus:outline-none focus:ring-0 active:bg-warning active:shadow-lg transition duration-150 ease-in-out" >
+          2 tap
         </button>
-        <button type="button" class="px-5 h-full py-1 bg-secondary-focus text-white font-medium text-xs uppercase shadow-md hover:bg-secondary hover:shadow-lg focus:bg-secondary focus:shadow-lg focus:outline-none focus:ring-0 active:bg-secondary-focus active:shadow-lg transition duration-150 ease-in-out" >
-          4
+        <button type="button" class="px-5 h-full py-1 bg-success-content text-white font-medium text-xs uppercase shadow-md hover:bg-success hover:shadow-lg focus:bg-success focus:shadow-lg focus:outline-none focus:ring-0 active:bg-warning active:shadow-lg transition duration-150 ease-in-out" >
+          3 tap
         </button>
+        <button type="button" class="px-5 h-full py-1 bg-success-content text-white font-medium text-xs uppercase shadow-md hover:bg-success hover:shadow-lg focus:bg-success focus:shadow-lg focus:outline-none focus:ring-0 active:bg-warning active:shadow-lg transition duration-150 ease-in-out" >
+          4 tap
+        </button>
+        
       </div>
       <!-- 네비 중단 -->
       <div class="grow"></div>

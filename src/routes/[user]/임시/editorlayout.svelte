@@ -51,11 +51,7 @@
   }
 </script>
 <svelte:head> <title>{user}'sKnow</title> </svelte:head>
-<!-- <div id="loading" class="h-screen w-screen bg-base-100 flex justify-center transition-all delay-100">
-  <div class="flex flex-col justify-center" >
-    <div class="radial-progress" style="--value:90; --size:12rem; --thickness: 2rem;">%</div>
-  </div>
-</div> -->
+
 <div id="container" class="flex flex-row h-screen">
   <!-- 사이드바 -->
   <div id="sidebar" class="flex-none w-64 max-w-6xl bg-secondary-focus h-screen top-0 left-0 overflow-x-hidden transition-all duration-500">
@@ -104,7 +100,7 @@
     <!-- 컨텐츠 -->
     <div class="grow flex flex-row">
       <div class="flex-auto">
-        <slot> 이건 어디에 붙는거냐 </slot>
+        <slot></slot>
       </div>
       <!-- 목차보기 -->
       <!-- <div class="flex-none w-32 bg-base-200"></div> -->
