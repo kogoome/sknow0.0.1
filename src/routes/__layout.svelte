@@ -26,7 +26,14 @@
 	import Nav from '$lib/layout/nav/index.svelte'
 	import Footer from '$lib/layout/footer.svelte';
 	import '../app.css';
+	import { onMount } from 'svelte'
+  import { themeChange } from 'theme-change'
+  onMount(() => {
+    themeChange(false)
+  })
 </script>
+
+
 
 <Nav/>
 <slot />

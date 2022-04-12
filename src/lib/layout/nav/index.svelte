@@ -1,6 +1,7 @@
 <script>
   import {get} from 'svelte/store';
   import {page, session} from '$app/stores'
+  import ThemeSelect from '$lib/featureComponent/theme-select.svelte'
   const sessionId = get(session).user.sknowSession
 
   const username = $page.stuff.loginId || ""
@@ -50,6 +51,7 @@
   </div>
   <div class="navbar-end pr-3">
   <!-- --마지막------------------------------------------ -->
+    
     {#if username}
     <div class="dropdown dropdown-end">
       <div tabindex="0" class="btn btn-circle btn-ghost m-1">{username}</div>
@@ -71,6 +73,7 @@
         </ul>
       </div>
     {/if}
+    <ThemeSelect />
   </div>
 </div>
 

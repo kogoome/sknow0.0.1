@@ -24,9 +24,6 @@
       <div>개인작업공간 공간구조 작성</div>
       <div>로드맵 페이지 작성</div>
       <div>로그인 모달 작성</div>
-
-    </div>
-    <div class="relative w-1/3 flex flex-col text-2xl">
       <h1>22.4.7</h1>
       <div>몽구스 스키마 작성</div>
       <div>유효성 검사 함수 작성</div>
@@ -42,6 +39,15 @@
       <div>로그인 성공</div>
       <div>세션 완성!!</div>
       <div>네비바에 회원가입 로그인 => 계정으로 변경시키고, 클릭시 메뉴생성 ui, 계정관리도구 넣기</div>
+    </div>
+    <div class="relative w-1/3 flex flex-col text-2xl">
+      <h1>22.4.10~11</h1>
+      <div>npm 아이쇼핑</div>
+      <h1>22.4.12</h1>
+      <div>문서 작성 페이지 ui 레이아웃 진행중</div>
+      <div>테마 셀렉트 메뉴바에 맞추기</div>
+      <div>tw-elements 가 daisyui랑 충돌이 생기는듯하다.</div>
+      
     </div>
     <div class="relative w-1/3 flex flex-col text-2xl">
       <h1>할일들</h1>

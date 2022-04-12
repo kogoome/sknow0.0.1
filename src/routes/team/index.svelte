@@ -8,4 +8,7 @@
     socket으로 구성, 실시간 반영,
     
   </div>
+  <div class="tooltip tooltip-success tooltip-right to-violet-600" data-tip="success">
+    <button class="btn btn-success">success</button>
+  </div>
 </div>
