@@ -1,10 +1,15 @@
-<div class="h-screen">
-  <div class="flex justify-center h-96 bg-green-200">
-    대시보드<br>
-    <br>
-    입력 데이터와 입력량<br>
-    분석한 개념 갯수<br>
-    날짜별 분석정보<br>
-    가진 개념들 지도 => 별자리처럼<br>
+<style> .hello { height: 96vh; } </style>
+
+<div class="hello flex justify-center overflow-auto">
+  <div class="flex flex-col justify-center">
+    
+    <!-- tooltip -->
+    <div class="tooltip tooltip-primary tooltip-bottom to-violet-600" data-tip="
+    생각을 모아보세요!
+    ">
+      <h1 class="text-3xl font-semibold">someth<span class="text-orange-400">i</span>nk</h1>
+    </div>
+    
   </div>
 </div>
+
