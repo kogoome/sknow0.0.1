@@ -10,7 +10,6 @@ const db = mongoose.connection
 const model = (() => {
   db.on('error', console.error)
   db.on('open', () => {
-    console.log('몽구스 연결')
   })
 
   // 아틀라스 클러스터 > 디비 연결 (디비명은 env 파일 내 연결주소에 포함)
@@ -24,7 +23,7 @@ const model = (() => {
       // useFindAndModify: true,
     })
     .then(() => {
-      console.log('project sKnow 연결')
+      console.log('//project sKnow//')
     })
     .catch((err) => console.log(err))
 
