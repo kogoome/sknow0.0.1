@@ -1,6 +1,6 @@
-<style> .hello { height: 96vh; } </style>
+<style>.hello{height: 96vh; overflow-y: scroll;}</style>
 
-<div class="hello flex justify-center overflow-auto">
+<div class="hello flex justify-center">
   <div class="flex flex-col justify-center">
     
     <!-- tooltip -->

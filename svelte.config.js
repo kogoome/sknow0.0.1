@@ -14,6 +14,7 @@ const config = {
 					$util: path.resolve('./src/lib/util'),
 					$controller: path.resolve('./src/lib/mongoose/controller'),
 					$model: path.resolve('./src/lib/mongoose/model'),
+					$routes: path.resolve('./src/routes'),
 				}
 			}
 		}
