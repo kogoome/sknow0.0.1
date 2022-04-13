@@ -2,10 +2,21 @@
   import {page} from '$app/stores'
   import Theme from '$lib/featureComponent/theme-select.svelte'
   import { onMount } from 'svelte'
-  onMount(() => themeChange(false))
   import { themeChange } from 'theme-change'
   import {manuIconClassName,openSidebar,resizer,searchFocus} from './keySidebar'
   import mousetrap from 'svelte-use-mousetrap';
+  import Sortable from 'sortablejs';
+  let container = null
+  onMount(() => {
+    themeChange(false)
+    const tap = document.getElementById("tap")
+    Sortable.create(tap, {
+      ghostClass: 'bg-base-content',
+      animation: 200,
+    })
+    
+
+  })
 
 </script>
 
@@ -75,31 +86,25 @@
   <!-- 네비 & 컨텐츠 -->
   <div id="content" class="grow flex flex-col h-screen transition-all duration-500">
     <!-- 네비게이션 -->
-    <div class="flex-none w-full h-auto bg-neutral flex flex-row ">
+    <div class="flex-none w-full h-auto bg-neutral flex flex-row">
       <!-- 네비 왼쪽 -->
-      <div class="flex-none">
-        <button type="button"  class="px-5 h-full py-1 bg-secondary-focus text-white font-medium text-xs uppercase shadow-md hover:bg-secondary hover:shadow-lg transition duration-150 ease-in-out active:bg-error" on:click={openSidebar} >
+      <div class="flex-none flex flex-row gap-1">
+        <button type="button"  class="px-5 h-full py-1 bg-secondary-focus text-white font-medium text-xs  shadow-md hover:bg-secondary hover:shadow-lg transition duration-150 ease-in-out active:bg-error" on:click={openSidebar} >
           <i id="menuIcon" class={manuIconClassName}></i> 
-          <div class="tooltip tooltip-primary tooltip-bottom to-violet-600 lowercase" data-tip=" ctrl+shift+e ">
+          <div class="uppercase tooltip tooltip-primary tooltip-bottom to-violet-600 " data-tip=" ctrl+shift+e ">
             menu
           </div>
         </button>
         <button class="px-5 h-full py-1 bg-secondary-focus text-white font-medium text-xs uppercase shadow-md hover:bg-secondary hover:shadow-lg transition duration-150 ease-in-out active:bg-error" >
           <a href="/">home</a>
         </button>
-        <button type="button" class="px-5 h-full py-1 bg-success-content text-white font-medium text-xs uppercase shadow-md hover:bg-success hover:shadow-lg focus:bg-success focus:shadow-lg focus:outline-none focus:ring-0 active:bg-warning active:shadow-lg transition duration-150 ease-in-out" >
-          1 tap
-        </button>
-        <button type="button" class="px-5 h-full py-1 bg-success-content text-white font-medium text-xs uppercase shadow-md hover:bg-success hover:shadow-lg focus:bg-success focus:shadow-lg focus:outline-none focus:ring-0 active:bg-warning active:shadow-lg transition duration-150 ease-in-out" >
-          2 tap
-        </button>
-        <button type="button" class="px-5 h-full py-1 bg-success-content text-white font-medium text-xs uppercase shadow-md hover:bg-success hover:shadow-lg focus:bg-success focus:shadow-lg focus:outline-none focus:ring-0 active:bg-warning active:shadow-lg transition duration-150 ease-in-out" >
-          3 tap
-        </button>
-        <button type="button" class="px-5 h-full py-1 bg-success-content text-white font-medium text-xs uppercase shadow-md hover:bg-success hover:shadow-lg focus:bg-success focus:shadow-lg focus:outline-none focus:ring-0 active:bg-warning active:shadow-lg transition duration-150 ease-in-out" >
-          4 tap
-        </button>
-        
+        <!-- 탭 들 -->
+        <ul id="tap" class="flex flex-row gap-1">
+          <li type="botton" class="bg-base-300 px-4 active:bg-base-100 hover:bg-base-100">first</li>
+          <li type="botton" class="bg-base-300 px-4 active:bg-base-100 hover:bg-base-100">second</li>
+          <li type="botton" class="bg-base-300 px-4 active:bg-base-100 hover:bg-base-100">third</li>
+          <li type="botton" class="bg-base-300 px-4 active:bg-base-100 hover:bg-base-100">fourth</li>
+        </ul>
       </div>
       <!-- 네비 중단 -->
       <div class="grow"></div>

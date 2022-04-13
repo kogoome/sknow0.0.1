@@ -1,7 +1,7 @@
 <script>
 import Sortable from 'sortablejs';
 import { onMount } from 'svelte'
-let root
+let root = null
 onMount(() => {
   const el = root.querySelector('#items')
   let sortable = Sortable.create(el, {
@@ -29,5 +29,4 @@ onMount(() => {
     <li class="bg-slate-100 text-center py-1">item 11</li>
     <li class="bg-slate-100 text-center py-1">item 12</li>
   </ul>
-  
 </div>
