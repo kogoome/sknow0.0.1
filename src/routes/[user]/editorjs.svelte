@@ -1,7 +1,9 @@
 <script>
   import mousetrap from 'svelte-use-mousetrap';
   import {contentFocus} from '$lib/layout/editor/keyContents.js'
+  import { createEditor } from 'svelte-editorjs';
 
+  const { editor, data, isReady } = createEditor();
 </script>
 <style>.hello{height: 96vh; overflow-y: scroll;}</style>
 
@@ -10,8 +12,5 @@
 ]}></div>
 
 <div class="hello">
-
-  <input type="text" id="editor">
-
-  
+  <div use:editor id="editor"/>
 </div>

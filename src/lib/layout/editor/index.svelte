@@ -2,40 +2,19 @@
   import {page} from '$app/stores'
   import Theme from '$lib/featureComponent/theme-select.svelte'
   import { onMount } from 'svelte'
-  import { themeChange } from 'theme-change'
   onMount(() => themeChange(false))
-  let drawerOpen = true
-  let sidebarWidth = 256
-  let manuIconClassName = "fa-solid fa-angles-left"
-  const openSidebar = () => {
-    if (drawerOpen) {
-      document.getElementById("sidebar").style.width = "0";
-      manuIconClassName = "fa-solid fa-bars"
-    } else {
-      document.getElementById("sidebar").style.width = `${sidebarWidth}px`
-      manuIconClassName = "fa-solid fa-angles-left"
-    }
-    drawerOpen=!drawerOpen
-  }
-  const resize = (e)=>{
-    sidebarWidth = sidebarWidth+e.movementX
-    document.getElementById("sidebar").style.width = `${sidebarWidth}px`
-  }
-  const stopResize = (e)=>{
-    document.getElementById("container").style.cursor = ""
-    document.getElementById("sidebar").style.transition= "0.4s"
-    document.getElementById("content").style.transition= "0.4s"
-    document.removeEventListener("mousemove", resize, false)
-    document.removeEventListener("mouseup", stopResize, false)
-  }
-  const resizer = (e)=>{
-    document.getElementById("container").style.cursor = "col-resize"
-    document.getElementById("sidebar").style.transition= "none"
-    document.getElementById("content").style.transition= "none"
-    document.addEventListener("mousemove", resize, false);
-    document.addEventListener("mouseup", stopResize, false);
-  }
+  import { themeChange } from 'theme-change'
+  import {manuIconClassName,openSidebar,resizer,searchFocus} from './keySidebar'
+  import mousetrap from 'svelte-use-mousetrap';
+
 </script>
+
+<!-- 마우스트랩 -->
+<div use:mousetrap={[
+  [['ctrl+shift+f'], searchFocus],
+  [['ctrl+shift+e'], openSidebar],
+]}></div>
+
 
 <div id="container" class="flex flex-row h-screen">
   <!-- 사이드바 -->
@@ -47,11 +26,9 @@
       <!-- 서치바 -->
       <div class="relative z-0 w-full group drop-shadow-md mb-2">
         <!-- svelte-ignore a11y-mouse-events-have-key-events -->
-        <input type="email" name="search" class="block pt-1 h-12 px-5 w-full bg-base-100 rounded-lg text-xl text-center bg-transparent border-0 border-b-4 border-warning appearance-none focus:outline-none focus:ring-0 peer" placeholder=" " required on:mouseover={(e)=>e.target.
-        // @ts-ignore
-        focus()} />
-        <label for="search" class="absolute px-2 duration-300 transform -translate-y-6 scale-75 top-3 z-10 origin-[0] peer-focus:left-0 peer-focus:text-error peer-placeholder-shown:scale-100 whitespace-nowrap peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 text-warning text-xl ">
-          SEARCH <kbd class="kbd kbd-sm">ctrl</kbd>+<kbd class="kbd kbd-sm">k</kbd>
+        <input id="search" type="text" name="search" class="block pt-1 h-12 px-5 w-full bg-base-100 rounded-lg text-xl text-center bg-transparent border-0 border-b-4 border-warning appearance-none focus:outline-none focus:ring-0 peer" placeholder=" " required />
+        <label for="search" class="absolute px-2 duration-300 transform -translate-y-6 scale-75 top-3 z-10 origin-[0] peer-focus:left-0 peer-focus:text-error peer-placeholder-shown:scale-100 whitespace-nowrap peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 text-warning text-xl on:click={()=>document.getElementById('search').focus()}">
+          SEARCH <kbd class="kbd kbd-sm">ctrl</kbd>+<kbd class="kbd kbd-sm">shift</kbd>+<kbd class="kbd kbd-sm">f</kbd>
         </label>
       </div>
       <div tabindex="0" class="collapse collapse-arrow">
@@ -102,9 +79,12 @@
       <!-- 네비 왼쪽 -->
       <div class="flex-none">
         <button type="button"  class="px-5 h-full py-1 bg-secondary-focus text-white font-medium text-xs uppercase shadow-md hover:bg-secondary hover:shadow-lg transition duration-150 ease-in-out active:bg-error" on:click={openSidebar} >
-          <i id="menuIcon" class={manuIconClassName}></i> menu
+          <i id="menuIcon" class={manuIconClassName}></i> 
+          <div class="tooltip tooltip-primary tooltip-bottom to-violet-600 lowercase" data-tip=" ctrl+shift+e ">
+            menu
+          </div>
         </button>
-        <button type="button"  class="px-5 h-full py-1 bg-secondary-focus text-white font-medium text-xs uppercase shadow-md hover:bg-secondary hover:shadow-lg transition duration-150 ease-in-out active:bg-error" >
+        <button class="px-5 h-full py-1 bg-secondary-focus text-white font-medium text-xs uppercase shadow-md hover:bg-secondary hover:shadow-lg transition duration-150 ease-in-out active:bg-error" >
           <a href="/">home</a>
         </button>
         <button type="button" class="px-5 h-full py-1 bg-success-content text-white font-medium text-xs uppercase shadow-md hover:bg-success hover:shadow-lg focus:bg-success focus:shadow-lg focus:outline-none focus:ring-0 active:bg-warning active:shadow-lg transition duration-150 ease-in-out" >

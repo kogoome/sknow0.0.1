@@ -39,25 +39,30 @@
       <div>로그인 성공</div>
       <div>세션 완성!!</div>
       <div>네비바에 회원가입 로그인 => 계정으로 변경시키고, 클릭시 메뉴생성 ui, 계정관리도구 넣기</div>
-    </div>
-    <div class="relative w-1/3 flex flex-col text-2xl">
       <h1>22.4.10~11</h1>
       <div>npm 아이쇼핑</div>
       <h1>22.4.12</h1>
       <div>문서 작성 페이지 ui 레이아웃 진행중</div>
       <div>테마 셀렉트 메뉴바에 맞추기</div>
       <div>tw-elements 가 daisyui랑 충돌이 생기는듯하다.</div>
+    </div>
+    <div class="relative w-1/3 flex flex-col text-2xl">
+      <h1>22.4.13</h1>
+      <div>마우스트랩 사용불가</div>
+      <div>스벨트 전용 마우스트랩 연결라이브러리 사용</div>
+      <div>인풋 박스 안에서 키매핑은 editorjs 자체를 커스텀해야하지 싶다.</div>
+      <div>해서 입력박스에서 키맵핑이 안통함. </div>
+      <div>사이드바 모양 다시 잡기</div>
+      <div>노드 엣지 디비 입력 페이지 만들기</div>
+      <div>에디터js는 잠시 보류하는걸로 하자.</div>
+      <div>사용 단축키는 현재 2개, 메뉴토글, 서치포커스</div>
       
     </div>
     <div class="relative w-1/3 flex flex-col text-2xl">
       <h1>할일들</h1>
-      <div>theme change사용해보고, 토글변경만들기</div>
-      <div>노트작성 페이지 ui 만들기</div>
       <div>스노우 페이지 작성</div>
-      <div>앱 드로어부터 고치기</div>
-      <div>상단바도 너무 두꺼워. ide 처럼 만들어보자.</div>
-      <div></div>
-      <div></div>
+      <div>뽀모도로시계 구현 라이브러리화 시켜서 옵션으로 추가가능하게 하자.</div>
+
       <div>jwt회원가입</div>
       <div>jwt로그인</div>
       <div>home 페이지, 스크롤 화면 로딩</div>

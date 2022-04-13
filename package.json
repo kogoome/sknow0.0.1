@@ -1,6 +1,6 @@
 {
-	"name": "sknow0.0.2",
-	"version": "0.0.1",
+	"name": "sknow",
+	"version": "0.0.2",
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",
@@ -27,12 +27,16 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@editorjs/editorjs": "^2.23.2",
 		"bcrypt": "^5.0.1",
 		"cookie": "^0.4.2",
 		"daisyui": "^2.13.6",
 		"dotenv": "^16.0.0",
 		"mongodb": "^4.5.0",
 		"mongoose": "^6.2.10",
+		"sortablejs": "^1.15.0",
+		"svelte-editorjs": "^0.1.0",
+		"svelte-use-mousetrap": "^1.0.1",
 		"theme-change": "^2.0.2",
 		"uuid": "^8.3.2"
 	}
