@@ -3,7 +3,7 @@
   import Theme from '$lib/featureComponent/theme-select.svelte'
   import { onMount } from 'svelte'
   import { themeChange } from 'theme-change'
-  import {manuIconClassName,openSidebar,resizer,searchFocus} from './keySidebar'
+  import {openSidebar,resizer,searchFocus} from './keySidebar'
   import mousetrap from 'svelte-use-mousetrap';
   import Sortable from 'sortablejs';
   let container = null
@@ -19,69 +19,69 @@
   })
 
 </script>
-
 <!-- 마우스트랩 -->
 <div use:mousetrap={[
   [['ctrl+shift+f'], searchFocus],
   [['ctrl+shift+e'], openSidebar],
 ]}></div>
 
+<!-- 툴팁
+<div class="tooltip tooltip-accent tooltip-top to-violet-600 " data-tip="Ctrl+<Shift>+F">
+  Search
+</div> -->
+
+<style> #search { border-width: 1px; } </style>
 
 <div id="container" class="flex flex-row h-screen">
   <!-- 사이드바 -->
-  <div id="sidebar" class="flex-none w-64 max-w-6xl bg-secondary-focus h-screen top-0 left-0 overflow-x-hidden transition-all duration-500">
-    <div class="flex flex-col justify-start pl-1">
-      <div class="text-2xl text-white pt-3 pb-3">
-        {$page.stuff.user}'s<span class="text-orange-500">K</span>now
-      </div>
-      <!-- 서치바 -->
-      <div class="relative z-0 w-full group drop-shadow-md mb-2">
-        <!-- svelte-ignore a11y-mouse-events-have-key-events -->
-        <input id="search" type="text" name="search" class="block pt-1 h-12 px-5 w-full bg-base-100 rounded-lg text-xl text-center bg-transparent border-0 border-b-4 border-warning appearance-none focus:outline-none focus:ring-0 peer" placeholder=" " required />
-        <label for="search" class="absolute px-2 duration-300 transform -translate-y-6 scale-75 top-3 z-10 origin-[0] peer-focus:left-0 peer-focus:text-error peer-placeholder-shown:scale-100 whitespace-nowrap peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 text-warning text-xl on:click={()=>document.getElementById('search').focus()}">
-          SEARCH <kbd class="kbd kbd-sm">ctrl</kbd>+<kbd class="kbd kbd-sm">shift</kbd>+<kbd class="kbd kbd-sm">f</kbd>
-        </label>
-      </div>
-      <div tabindex="0" class="collapse collapse-arrow">
-        <div class="collapse-title bg-secondary text-center text-lg"> 목차 </div>
-        <div class="collapse-content"> 
-          <ul class="steps steps-vertical">
-            <li class="step step-primary">Register</li>
-            <li class="step step-primary">Choose plan</li>
-            <li class="step">Purchase</li>
-            <li class="step">Receive Product</li>
-          </ul>
+  <div id="sidebarBox" class="flex-none flex flex-row w-64 max-w-6xl relative transition-all duration-500">
+    <div id="sidebar" class="flex-none w-64 bg-neutral h-screen top-0 left-0 overflow-x-hidden transition-all duration-500">
+      <div class="flex flex-col justify-start">
+        <div class="text-2xl text-white p-3 mt-5 text-center ">
+          {$page.stuff.user}'s<span class="text-orange-500">K</span>now
+        </div>
+        <!-- 서치바 -->
+        <div class="relative z-0 group mb-5 ml-5 mr-5 mt-5">
+          <!-- svelte-ignore a11y-mouse-events-have-key-events -->
+          <input id="search" type="text" name="search" class="block pt-1 h-8 px-5 w-full rounded-2xl  border-gray-300 text-md text-gray-300 text-center bg-transparent appearance-none focus:outline-none focus:ring-0 peer " placeholder=" " required />
+          <label for="search" class="absolute peer-focus:bg-secondary-focus px-2 duration-300 rounded-3xl transform -translate-y-7 scale-75 top-1 z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 whitespace-nowrap peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 text-gray-300 text-lg on:click={()=>document.getElementById('search').focus()}">
+            <div class="tooltip tooltip-accent tooltip-right to-violet-600 " data-tip="Ctrl+<Shift>+F">
+              Search
+            </div>
+          </label>
+        </div>
+        <!-- 목차 -->
+        <button class="accordion text-white active:bg-secondary-content hover:bg-secondary transition ease-in-out">Section 1</button>
+        <div class="panel text-white active:bg-secondary">
+          <p>Lorem ipsum...</p>
+        </div>
+        <div tabindex="0" class="collapse whitespace-nowrap">
+          <div class="text-base-100 bg-slate-600 px-3"> 목차  </div>
+          <div class="collapse-content"> 
+            <ul class="steps steps-vertical">
+              <li class="step step-primary">Register</li>
+              <li class="step step-primary">Choose plan</li>
+              <li class="step">Purchase</li>
+              <li class="step">Receive Product</li>
+  
+            </ul>
+          </div>
+        </div>
+        <div tabindex="0" class="collapse group whitespace-nowrap">
+          <div class="collapse-title bg-primary text-primary-content group-focus:bg-secondary group-focus:text-secondary-content">
+            Focus me to see content
+          </div>
+          <div class="collapse-content bg-primary text-primary-content group-focus:bg-secondary group-focus:text-secondary-content"> 
+            <p>tabindex="0" attribute is necessary to make the div focusable</p>
+          </div>
         </div>
       </div>
-      <div tabindex="0" class="collapse collapse-arrow">
-        <div class="collapse-title bg-secondary text-center text-lg"> 라이브러리 </div>
-        <div class="collapse-content"> 
-          <ul class="steps steps-vertical">
-            <li class="step step-primary">Register</li>
-            <li class="step step-primary">Choose plan</li>
-            <li class="step">Purchase</li>
-            <li class="step">Receive Product</li>
-          </ul>
-        </div>
-      </div>
-      <div tabindex="0" class="collapse collapse-arrow">
-        <div class="collapse-title bg-secondary text-center text-lg"> 컨텐츠 </div>
-        <div class="collapse-content"> 
-          <ul class="steps steps-vertical">
-            <li class="step step-primary">Register</li>
-            <li class="step step-primary">Choose plan</li>
-            <li class="step">Purchase</li>
-            <li class="step">Receive Product</li>
-          </ul>
-        </div>
-      </div>
-
     </div>
+    <button id="resizer" class="absolute active:bg-primary-focus w-1 h-full z-10 right-px" style="cursor:col-resize" on:mousedown={resizer}></button>
   </div>
   <!-- 리사이져 -->
-  <button id="resizer" class="flex-none bg-secondary-focus active:bg-primary-focus w-1 " style="cursor:col-resize" on:mousedown={resizer}></button>
-  <div class="flex-none flex flex-row ">
-  </div>
+  
+
 
   <!-- 네비 & 컨텐츠 -->
   <div id="content" class="grow flex flex-col h-screen transition-all duration-500">
@@ -89,10 +89,10 @@
     <div class="flex-none w-full h-auto bg-neutral flex flex-row">
       <!-- 네비 왼쪽 -->
       <div class="flex-none flex flex-row gap-1">
-        <button type="button"  class="px-5 h-full py-1 bg-secondary-focus text-white font-medium text-xs  shadow-md hover:bg-secondary hover:shadow-lg transition duration-150 ease-in-out active:bg-error" on:click={openSidebar} >
-          <i id="menuIcon" class={manuIconClassName}></i> 
-          <div class="uppercase tooltip tooltip-primary tooltip-bottom to-violet-600 " data-tip=" ctrl+shift+e ">
-            menu
+        <button type="button"  class="px-2 h-full py-1 bg-neutral text-white font-medium text-xs  shadow-md hover:bg-secondary hover:shadow-lg transition duration-150 ease-in-out active:bg-error" on:click={openSidebar} >
+          <div class="tooltip tooltip-accent tooltip-bottom to-violet-600 " data-tip="Ctrl+<Shift>+E">
+            <i id="menuIcon" class="fa-solid fa-angles-left"></i> 
+            MENU
           </div>
         </button>
         <button class="px-5 h-full py-1 bg-secondary-focus text-white font-medium text-xs uppercase shadow-md hover:bg-secondary hover:shadow-lg transition duration-150 ease-in-out active:bg-error" >
@@ -100,10 +100,10 @@
         </button>
         <!-- 탭 들 -->
         <ul id="tap" class="flex flex-row gap-1">
-          <li type="botton" class="bg-base-300 px-4 active:bg-base-100 hover:bg-base-100">first</li>
-          <li type="botton" class="bg-base-300 px-4 active:bg-base-100 hover:bg-base-100">second</li>
-          <li type="botton" class="bg-base-300 px-4 active:bg-base-100 hover:bg-base-100">third</li>
-          <li type="botton" class="bg-base-300 px-4 active:bg-base-100 hover:bg-base-100">fourth</li>
+          <li type="botton" class="bg-base-300 px-4 rounded-t-md active:bg-base-100 hover:bg-base-100">first</li>
+          <li type="botton" class="bg-base-300 px-4 rounded-t-md active:bg-base-100 hover:bg-base-100">second</li>
+          <li type="botton" class="bg-base-300 px-4 rounded-t-md active:bg-base-100 hover:bg-base-100">third</li>
+          <li type="botton" class="bg-base-300 px-4 rounded-t-md active:bg-base-100 hover:bg-base-100">fourth</li>
         </ul>
       </div>
       <!-- 네비 중단 -->

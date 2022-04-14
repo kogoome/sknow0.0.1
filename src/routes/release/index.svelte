@@ -56,7 +56,9 @@
       <div>노드 엣지 디비 입력 페이지 만들기</div>
       <div>에디터js는 잠시 보류하는걸로 하자.</div>
       <div>사용 단축키는 현재 2개, 메뉴토글, 서치포커스</div>
-      
+      <h1>22.4.14</h1>
+      <div>스크롤바 테마적용</div>
+      <div>사이드바 리사이져 안보이게</div>
     </div>
     <div class="relative w-1/3 flex flex-col text-2xl">
       <h1>할일들</h1>

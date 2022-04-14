@@ -3,13 +3,12 @@
   import {contentFocus} from '$lib/layout/editor/keyContents.js'
 
 </script>
-<style>.hello{height: 96vh; overflow-y: scroll;}</style>
 
 <div use:mousetrap={[
   [['esc'], contentFocus],
 ]}></div>
 
-<div class="hello">
+<div class="contentRoot">
 
   <input type="text" id="editor">
 

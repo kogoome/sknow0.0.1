@@ -20,10 +20,7 @@ const fn3 = (e) => console.log('fn3', e);
   ['w', [fn2]],
 ]}>...</div>
 
-
-<style>.hello{height: 96vh; overflow-y: scroll;}</style>
-
-<div class="hello">
+<div class="contentRoot">
 
   마우스 트랩 예제
   

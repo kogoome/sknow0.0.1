@@ -10,3 +10,15 @@
 body {
   /* height: 100vh; */
 }
+
+/* editor content */
+.contentRoot{ height: 96vh; overflow-y: scroll; }
+/* 스크롤바 */
+::-webkit-scrollbar {
+  background-color: hsl(var(--b3)); 
+  width: 4px; 
+} 
+::-webkit-scrollbar-thumb { 
+  background-color: hsl(var(--af)); 
+  border-radius: 100px;
+}

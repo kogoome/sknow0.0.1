@@ -5,12 +5,11 @@
 
   const { editor, data, isReady } = createEditor();
 </script>
-<style>.hello{height: 96vh; overflow-y: scroll;}</style>
 
 <div use:mousetrap={[
   [['esc'], contentFocus],
 ]}></div>
 
-<div class="hello">
+<div class="contentRoot">
   <div use:editor id="editor"/>
 </div>

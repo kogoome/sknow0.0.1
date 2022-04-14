@@ -12,9 +12,8 @@ onMount(() => {
   })
 })
 </script>
-<style>.hello{height: 96vh; overflow-y: scroll;}</style>
 
-<div class="hello"  bind:this="{root}">
+<div class="contentRoot"  bind:this="{root}">
   <ul id="items" class="text-lg transition flex flex-col w-1/3" >
     <li class="bg-slate-100 text-center py-1">item 1</li>
     <li class="bg-slate-100 text-center py-1">item 2</li>

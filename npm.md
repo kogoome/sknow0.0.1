@@ -5,7 +5,10 @@ svelte-use-mousetrap(잘됨. 인풋박스 안에서는 안먹히고 있음)
 # 써봄직한 도구들, 
 오늘 할거
 sortablejs(드래그엔드롭 리스트. 흥미롭군) 
-
+svelte/motion,
+svelte/transition,
+svelte/animate
+svelte/easing
 # 노션같은 에디터!!!!
 editor.js
 
