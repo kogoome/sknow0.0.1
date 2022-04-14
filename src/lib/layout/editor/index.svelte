@@ -1,5 +1,4 @@
 <script>
-  import { page } from '$app/stores'
   import Theme from '$lib/featureComponent/theme-select.svelte'
   import { onMount } from 'svelte'
   import { themeChange } from 'theme-change'
@@ -30,7 +29,8 @@
       })
     })
   })
-
+  // 태그 property 로 전달
+  export let user
 </script>
 <!-- 마우스트랩, mousetrap->keyboard ? 그냥 있는그대로 쓰자,
   단축키 함수는 앞에 key 이름을 붙이는건 어떤지? searchFocus-> keySearchFocus. 좋은데 두 함수가 분리가 안되있네 그냥 쓰자.
@@ -57,8 +57,9 @@
     <div id="sidebar" class="flex-none w-64 bg-neutral h-screen top-0 left-0 overflow-x-hidden transition-all duration-500 flex flex-col justify-start">
       <!-- 사이드바 로고 -->
       <div class="text-2xl text-white p-3 mt-5 text-center ">
-        <a href="/{$page.stuff.user}">
-          {$page.stuff.user}'s<span class="text-orange-500">K</span>now
+        <a href="/{user}">
+          {user}'s<span class="text-orange-500">K</span>now
+          
         </a>
       </div>
       <!-- 서치바 -->
@@ -140,22 +141,22 @@
         <!-- 탭 들 -->
         <ul id="tap" class="flex flex-row gap-1">
           <li type="botton" class="bg-base-300 px-4 rounded-t-md active:bg-base-100 hover:bg-base-100">
-            <a href="/{$page.stuff.user}/default">default</a>
+            <a href="/{user}/default">default</a>
           </li>
           <li type="botton" class="bg-base-300 px-4 rounded-t-md active:bg-base-100 hover:bg-base-100">
-            <a href="/{$page.stuff.user}/ex/overflow">overflow</a>
+            <a href="/{user}/ex/overflow">overflow</a>
           </li>
           <li type="botton" class="bg-base-300 px-4 rounded-t-md active:bg-base-100 hover:bg-base-100">
-            <a href="/{$page.stuff.user}/ex/sortablejs">sortablejs</a>
+            <a href="/{user}/ex/sortablejs">sortablejs</a>
           </li>
           <li type="botton" class="bg-base-300 px-4 rounded-t-md active:bg-base-100 hover:bg-base-100">
-            <a href="/{$page.stuff.user}/ex/editorjs">editorjs</a>
+            <a href="/{user}/ex/editorjs">editorjs</a>
           </li>
           <li type="botton" class="bg-base-300 px-4 rounded-t-md active:bg-base-100 hover:bg-base-100">
-            <a href="/{$page.stuff.user}/ex/mousetrap">mousetrap</a>
+            <a href="/{user}/ex/mousetrap">mousetrap</a>
           </li>
           <li type="botton" class="bg-base-300 px-4 rounded-t-md active:bg-base-100 hover:bg-base-100">
-            <a href="/{$page.stuff.user}/ex/bindElement">bindElement</a>
+            <a href="/{user}/ex/bindElement">bindElement</a>
           </li>
         </ul>
       </div>

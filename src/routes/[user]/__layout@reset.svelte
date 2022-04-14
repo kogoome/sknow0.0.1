@@ -4,7 +4,7 @@
     const {origin, pathname, href} = url
     return { 
       props:{ origin, user, },
-      stuff:{ user },
+      // stuff:{ user },
     }
   }
 </script>
@@ -15,6 +15,6 @@
 
 <svelte:head> <title>{user}'sKnow</title> </svelte:head>
 
-<!-- 슬롯은 다음 태그문서 슬롯으로 전달 -->
-<Edit><slot/></Edit>
+<!-- 태그 속성으로 데이터전달, 슬롯은 다음 태그문서 슬롯으로 전달 -->
+<Edit {user}><slot/></Edit>
   
