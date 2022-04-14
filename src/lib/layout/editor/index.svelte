@@ -1,12 +1,12 @@
 <script>
-  import {page} from '$app/stores'
+  import { page } from '$app/stores'
   import Theme from '$lib/featureComponent/theme-select.svelte'
   import { onMount } from 'svelte'
   import { themeChange } from 'theme-change'
-  import {openSidebar,resizer,searchFocus} from './keySidebar'
+  import { openSidebar,resizer,searchFocus } from './keySidebar'
   import mousetrap from 'svelte-use-mousetrap';
   import Sortable from 'sortablejs';
-  let container = null
+  
   onMount(() => {
     themeChange(false)
     const tap = document.getElementById("tap")
@@ -14,10 +14,7 @@
       ghostClass: 'bg-base-content',
       animation: 200,
     })
-    
-
   })
-
 </script>
 <!-- 마우스트랩 -->
 <div use:mousetrap={[
@@ -30,7 +27,10 @@
   Search
 </div> -->
 
-<style> #search { border-width: 1px; } </style>
+<style> 
+  #search { border-width: 1px; } 
+  #search+label { top:1px; }
+</style>
 
 <div id="container" class="flex flex-row h-screen">
   <!-- 사이드바 -->
@@ -43,8 +43,8 @@
         <!-- 서치바 -->
         <div class="relative z-0 group mb-5 ml-5 mr-5 mt-5">
           <!-- svelte-ignore a11y-mouse-events-have-key-events -->
-          <input id="search" type="text" name="search" class="block pt-1 h-8 px-5 w-full rounded-2xl  border-gray-300 text-md text-gray-300 text-center bg-transparent appearance-none focus:outline-none focus:ring-0 peer " placeholder=" " required />
-          <label for="search" class="absolute peer-focus:bg-secondary-focus px-2 duration-300 rounded-3xl transform -translate-y-7 scale-75 top-1 z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 whitespace-nowrap peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 text-gray-300 text-lg on:click={()=>document.getElementById('search').focus()}">
+          <input id="search" type="text" name="search" class="block h-8 px-5 w-full rounded-2xl  border-gray-300 text-md text-gray-300 text-center bg-transparent appearance-none focus:outline-none focus:ring-0 peer " placeholder=" " required />
+          <label for="search" class="absolute peer-focus:bg-secondary-focus px-2 duration-300 rounded-3xl transform -translate-y-7 scale-75 z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 whitespace-nowrap peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 text-gray-300 text-lg on:click={()=>document.getElementById('search').focus()}">
             <div class="tooltip tooltip-accent tooltip-right to-violet-600 " data-tip="Ctrl+<Shift>+F">
               Search
             </div>
@@ -77,7 +77,7 @@
         </div>
       </div>
     </div>
-    <button id="resizer" class="absolute active:bg-primary-focus w-1 h-full z-10 right-px" style="cursor:col-resize" on:mousedown={resizer}></button>
+    <button id="resizer" class="absolute active:bg-secondary-focus w-1 h-full z-10 right-0" style="cursor:col-resize" on:mousedown={resizer}></button>
   </div>
   <!-- 리사이져 -->
   
@@ -109,7 +109,7 @@
       <!-- 네비 중단 -->
       <div class="grow"></div>
       <!-- 네비 오른쪽 -->
-      <div class="flex-none pr-3"> <Theme/> </div>
+      <div class="flex-none pr-3 "> <Theme/> </div>
     </div>
     <!-- 컨텐츠 -->
     <div class="grow flex flex-row">

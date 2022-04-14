@@ -35,5 +35,5 @@
 </select>
 
 <style>
-  #theme-select { margin: 0.7px; }
+  /* #theme-select { margin: 0.7px; } */
 </style>

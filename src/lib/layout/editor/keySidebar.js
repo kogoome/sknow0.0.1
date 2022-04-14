@@ -24,14 +24,15 @@ const stopResize = () => {
   document.getElementById("container").style.cursor = ""
   document.getElementById("sidebarBox").style.transition = "0.4s"
   document.getElementById("sidebar").style.transition = "0.4s"
-  document.getElementById("content").style.transition = "0.4s"
+  // document.getElementById("content").style.transition = "0.4s"
   document.removeEventListener("mousemove", resize, false)
   document.removeEventListener("mouseup", stopResize, false)
 }
 export const resizer = () => {
   document.getElementById("container").style.cursor = "col-resize"
   document.getElementById("sidebarBox").style.transition = "none"
-  document.getElementById("content").style.transition = "none"
+  document.getElementById("sidebar").style.transition = "none"
+  // document.getElementById("content").style.transition = "none"
   document.addEventListener("mousemove", resize, false);
   document.addEventListener("mouseup", stopResize, false);
 }
