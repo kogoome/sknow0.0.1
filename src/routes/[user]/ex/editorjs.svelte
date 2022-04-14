@@ -10,6 +10,7 @@
   [['esc'], contentFocus],
 ]}></div>
 
-<div class="contentRoot">
+<div class="contentRoot text-center">
+  ⬇ 아래 클릭하고 입력 ⬇
   <div use:editor id="editor"/>
 </div>

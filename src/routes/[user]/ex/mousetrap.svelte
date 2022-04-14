@@ -12,13 +12,11 @@ const fn3 = (e) => console.log('fn3', e);
 // 잘 되는거 확인, 이벤트는 바디 전역 돔
 </script>
 
-
-
 <div use:mousetrap={[
   [['ctrl+shift+q'], fn1],
   ['q', [fn3]],
   ['w', [fn2]],
-]}>...</div>
+]}></div>
 
 <div class="contentRoot">
 

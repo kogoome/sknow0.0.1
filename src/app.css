@@ -16,7 +16,7 @@ body {
   height: 96vh; 
   /* width:1664px; */
   overflow-y: scroll; 
-  transition: 0.3s; 
+  transition: 1s; 
 }
 /* 스크롤바 */
 ::-webkit-scrollbar {

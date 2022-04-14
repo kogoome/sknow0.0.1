@@ -11,7 +11,6 @@
       { title: 'Agora', link: '/agora' },
       { title: 'Team', link: '/team' },
       { title: 'ReleaseNote', link: '/release' },
-      { title: 'Time', link: '/time' },
     ]
       
   let link 

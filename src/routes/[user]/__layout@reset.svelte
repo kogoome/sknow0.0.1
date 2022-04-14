@@ -14,5 +14,7 @@
 </script>
 
 <svelte:head> <title>{user}'sKnow</title> </svelte:head>
+
+<!-- 슬롯은 다음 태그문서 슬롯으로 전달 -->
 <Edit><slot/></Edit>
   

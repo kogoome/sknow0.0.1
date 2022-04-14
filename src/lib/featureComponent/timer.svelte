@@ -49,10 +49,7 @@
     clearInterval(timeUpdate)
   })
 </script>
-<style>
-  .timer { height: 75vh; width: 100vw; transition: all 0.5s;}
-</style>
-<div class="timer flex justify-center h-full">
+<div class="timer flex justify-center transition duration-500">
   <!-- 가로 플렉스 공간 채우기 ㄴㄴ -->
   <div class="flex flex-col justify-center h-full" >
     <!-- 세로 플렉스 공간 채우기 ㅇㅋ-->
