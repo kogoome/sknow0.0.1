@@ -59,6 +59,8 @@
       <h1>22.4.14</h1>
       <div>스크롤바 테마적용</div>
       <div>사이드바 리사이져 안보이게</div>
+      <div>dom 바인딩방법 문서</div>
+      <div>accordion 예제 완성 모듈화 시작</div>
     </div>
     <div class="relative w-1/3 flex flex-col text-2xl">
       <h1>할일들</h1>

@@ -4,13 +4,17 @@
 
 </script>
 
+<!-- 단축키 -->
 <div use:mousetrap={[
   [['esc'], contentFocus],
 ]}></div>
 
 <div class="contentRoot">
 
-  <input type="text" id="editor">
+  <div class="w-full h-full bg-slate-400">
+  </div>
+  <div class="w-full h-full bg-slate-400">
+  </div>
 
   
 </div>

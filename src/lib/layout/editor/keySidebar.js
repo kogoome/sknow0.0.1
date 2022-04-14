@@ -36,7 +36,10 @@ export const resizer = () => {
   document.addEventListener("mousemove", resize, false);
   document.addEventListener("mouseup", stopResize, false);
 }
-// 마우스트랩 -------------------------------------------------
+
+
+
+// 단축키 전용-------------------------------------------------
 export const searchFocus = () => {
   if (drawerOpen) {
     document.getElementById('search').focus()

@@ -12,22 +12,18 @@ body {
 }
 
 /* editor content */
-.contentRoot{ height: 96vh; overflow-y: scroll; transition: 0.3s; }
+.contentRoot{ 
+  height: 96vh; 
+  /* width:1664px; */
+  overflow-y: scroll; 
+  transition: 0.3s; 
+}
 /* 스크롤바 */
 ::-webkit-scrollbar {
   background-color: hsl(var(--b1)); 
   width: 20px; 
+  height: 20px;
 } 
-/* :hover::-webkit-scrollbar {
-  width: 14px; 
-}
-:hover::-webkit-scrollbar-thumb { 
-  width: 13px;
-  background-color: hsl(var(--af)); 
-  box-shadow: inset 0 0 50px hsl(var(--b1));
-  border-radius: 100px;
-  transition: 0.3s;
-} */
 ::-webkit-scrollbar-thumb { 
   background-color: hsl(var(--a)); 
   box-shadow: inset 10px 0 0 5px hsl(var(--b1));

@@ -15,8 +15,13 @@
       animation: 200,
     })
   })
+
+
+
 </script>
-<!-- 마우스트랩 -->
+<!-- 마우스트랩, mousetrap->keyboard ? 그냥 있는그대로 쓰자,
+  단축키 함수는 앞에 key 이름을 붙이는건 어떤지? searchFocus-> keySearchFocus. 좋은데 두 함수가 분리가 안되있네 그냥 쓰자.
+-->
 <div use:mousetrap={[
   [['ctrl+shift+f'], searchFocus],
   [['ctrl+shift+e'], openSidebar],
@@ -33,8 +38,8 @@
 </style>
 
 <div id="container" class="flex flex-row h-screen">
-  <!-- 사이드바 -->
-  <div id="sidebarBox" class="flex-none flex flex-row w-64 max-w-6xl relative transition-all duration-500">
+  <!-- 사이드바 그룹 -->
+  <div id="sidebarBox" class="flex-none flex flex-row w-64 max-w-6xl relative transition-all duration-500 select-none">
     <div id="sidebar" class="flex-none w-64 bg-neutral h-screen top-0 left-0 overflow-x-hidden transition-all duration-500">
       <div class="flex flex-col justify-start">
         <div class="text-2xl text-white p-3 mt-5 text-center ">
@@ -63,7 +68,6 @@
               <li class="step step-primary">Choose plan</li>
               <li class="step">Purchase</li>
               <li class="step">Receive Product</li>
-  
             </ul>
           </div>
         </div>
@@ -77,16 +81,13 @@
         </div>
       </div>
     </div>
+    <!-- 리사이져 -->
     <button id="resizer" class="absolute active:bg-secondary-focus w-1 h-full z-10 right-0" style="cursor:col-resize" on:mousedown={resizer}></button>
   </div>
-  <!-- 리사이져 -->
-  
-
-
   <!-- 네비 & 컨텐츠 -->
   <div id="content" class="grow flex flex-col h-screen transition-all duration-500">
     <!-- 네비게이션 -->
-    <div class="flex-none w-full h-auto bg-neutral flex flex-row">
+    <div class="flex-none w-full h-auto bg-neutral flex flex-row select-none">
       <!-- 네비 왼쪽 -->
       <div class="flex-none flex flex-row gap-1">
         <button type="button"  class="px-2 h-full py-1 bg-neutral text-white font-medium text-xs  shadow-md hover:bg-secondary hover:shadow-lg transition duration-150 ease-in-out active:bg-error" on:click={openSidebar} >
