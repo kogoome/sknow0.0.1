@@ -1,4 +1,5 @@
 <script>
+  // import { page } from '$app/stores'
   import Theme from '$lib/featureComponent/theme-select.svelte'
   import { onMount } from 'svelte'
   import { themeChange } from 'theme-change'
@@ -29,8 +30,9 @@
       })
     })
   })
-  // 태그 property 로 전달
-  export let user
+  // 1. 태그속성으로 데이터 수신
+  export let user = "unknown" // 받는값이 없으면 초기값으로 대체
+  // 2. $page.stuff.user 페이지데이터로 수신
 </script>
 <!-- 마우스트랩, mousetrap->keyboard ? 그냥 있는그대로 쓰자,
   단축키 함수는 앞에 key 이름을 붙이는건 어떤지? searchFocus-> keySearchFocus. 좋은데 두 함수가 분리가 안되있네 그냥 쓰자.
