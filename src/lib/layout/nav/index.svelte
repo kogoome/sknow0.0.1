@@ -58,7 +58,6 @@
         <li><a>🍔 Profile</a></li>
         <li><a>🥞 Edit profile</a></li>
         <li><div on:click={logout}>🥫 Log out</div></li>
-        <li><a href="/ui">🍖 ui 둘러보기</a></li>
         <li><a>🍖 Etc...</a></li>
       </ul>
     </div>
@@ -68,7 +67,6 @@
         <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
           <li><a href="/acount/login">🍔 Login</a></li>
           <li><a href="/acount/createAcount">🥞 Create Acount</a></li>
-          <li><a href="/ui">🍖 ui 둘러보기</a></li>
         </ul>
       </div>
     {/if}

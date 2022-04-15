@@ -144,6 +144,9 @@
             <a href="/{user}/default">default</a>
           </li>
           <li type="botton" class="bg-base-300 px-4 rounded-t-md active:bg-base-100 hover:bg-base-100">
+            <a href="/{user}/ex/releaseNote">releaseNote</a>
+          </li>
+          <li type="botton" class="bg-base-300 px-4 rounded-t-md active:bg-base-100 hover:bg-base-100">
             <a href="/{user}/ex/overflow">overflow</a>
           </li>
           <li type="botton" class="bg-base-300 px-4 rounded-t-md active:bg-base-100 hover:bg-base-100">
