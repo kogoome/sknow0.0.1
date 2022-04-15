@@ -43,10 +43,8 @@
   }
 </script>
 
-<!-- 다른곳으로 리스크 이동시 길이가 고정되는 부작용이 있다. -->
-<div class="text-center"> 모두의 리스트 </div>
-<div bind:this={todo} class="flex flex-row w-full p-10 gap-2">
-  <div class="basis-1/4">
+<div bind:this={todo} class="flex flex-row w-full p-10 gap-2 overflow-y-auto">
+  <div class="basis-1/4 todo">
     <div class="text-center text-2xl">Todo</div>
     <div class="title text-white px-2 bg-neutral hover:bg-secondary text-xl text-center">
       <span class="">goal</span>
@@ -84,11 +82,10 @@
       <li class="active:bg-secondary">세부항목 구현목록</li>
       <li class="active:bg-secondary">각 항목별 사원 프로필 등록</li>
       <li class="active:bg-secondary">해당 사원은 자기 프로세스로 갖고가서 작업</li>
-
     </ul>
   </div>
 
-  <div class="basis-1/4">
+  <div class="basis-1/4 process">
     <div class="text-center text-2xl">Process</div>
     <div class="title text-white px-2 bg-neutral hover:bg-secondary text-xl text-center">
       <span class="">human1</span>
@@ -112,41 +109,69 @@
     </ul>
   </div>
 
-  <div class="basis-1/4">
+  <div class="basis-1/4 complete">
     <div class="text-center text-2xl">Complete</div>
+
     <div class="title text-white px-2 bg-neutral hover:bg-secondary text-xl text-center">
-      <span class="">date1</span>
+      <span class="">22.4.9</span>
     </div>
     <ul class="content">
-      <li class="active:bg-secondary">complete</li>
+      <li class="active:bg-secondary">회원 가입, 로그인 성공</li>
+      <li class="active:bg-secondary">세션완성</li>
+      <li class="active:bg-secondary">네비바에 회원가입 로그인 => 계정 클릭메뉴</li>
+      <li class="active:bg-secondary"></li>
+      <li class="active:bg-secondary"></li>
+      <li class="active:bg-secondary"></li>
     </ul>
+
     <div class="title text-white px-2 bg-neutral hover:bg-secondary text-xl text-center">
-      <span class="">date2</span>
+      <span class="">22.4.8</span>
     </div>
     <ul class="content">
-      <li class="active:bg-secondary">complete</li>
+      <li class="active:bg-secondary">로그인 회원가입페이지 작성</li>
     </ul>
+
     <div class="title text-white px-2 bg-neutral hover:bg-secondary text-xl text-center">
-      <span class="">date3</span>
+      <span class="">22.4.7</span>
     </div>
     <ul class="content">
-      <li class="active:bg-secondary">complete</li>
+      <li class="active:bg-secondary">몽구스 스키마 작성</li>
+      <li class="active:bg-secondary">유효성검사 함수작성</li>
+      <li class="active:bg-secondary">몽구스 모델작성 디비연결 확인</li>
+      <li class="active:bg-secondary">패스포트는 사용안함</li>
     </ul>
+
     <div class="title text-white px-2 bg-neutral hover:bg-secondary text-xl text-center">
-      <span class="">date3</span>
+      <span class="">22.4.6</span>
     </div>
     <ul class="content">
-      <li class="active:bg-secondary">complete</li>
+      <li class="active:bg-secondary">네비메뉴 정리 로그인 회원가입</li>
+      <li class="active:bg-secondary">페이지 별 목표점 작성</li>
+      <li class="active:bg-secondary">개인 작업공간 구조작성</li>
+      <li class="active:bg-secondary">릴리즈페이지 작성</li>
+      <li class="active:bg-secondary">로그인 모달 작성</li>
     </ul>
+
     <div class="title text-white px-2 bg-neutral hover:bg-secondary text-xl text-center">
-      <span class="">date3</span>
+      <span class="">22.4.5</span>
     </div>
     <ul class="content">
-      <li class="active:bg-secondary">complete</li>
+      <li class="active:bg-secondary">tailwind 추가</li>
+      <li class="active:bg-secondary">웹 구조 및 아이콘 갖추기</li>
+      <li class="active:bg-secondary">타이머 컴포넌트 작성</li>
     </ul>
+
+    <div class="title text-white px-2 bg-neutral hover:bg-secondary text-xl text-center">
+      <span class="">22.4.4</span>
+    </div>
+    <ul class="content">
+      <li class="active:bg-secondary">프로젝트 셋팅</li>
+      <li class="active:bg-secondary">user 디비구조 셋팅</li>
+    </ul>
+
   </div>
 
-  <div class="basis-1/4">
+  <div class="basis-1/4 learn">
     <div class="text-center text-2xl">Learn</div>
     <ul class="content">
       <li class="active:bg-secondary">ing</li>
