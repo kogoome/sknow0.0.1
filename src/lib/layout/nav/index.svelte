@@ -2,7 +2,7 @@
   import {get} from 'svelte/store';
   import {page, session} from '$app/stores'
   import ThemeSelect from '$lib/featureComponent/theme-select.svelte'
-  const sessionId = get(session).user.sknowSession
+  const sessionId = get(session).user?get(session).user.sknowSession:""
 
   const username = $page.stuff.loginId || ""
   const nav = [
@@ -13,7 +13,6 @@
       { title: 'ReleaseNote', link: '/release' },
     ]
       
-  let link 
   $: link=$page.url.pathname
 
   const logout = async () => {
