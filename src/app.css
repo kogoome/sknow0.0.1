@@ -4,14 +4,12 @@
 @tailwind utilities;
 
 
-
-
 /* editor content */
 .contentRoot{ 
   height: 96vh; 
   /* width:1664px; */
   overflow-y: scroll; 
-  transition: 1s; 
+  transition: 2s; 
 }
 /* 스크롤바 */
 ::-webkit-scrollbar {

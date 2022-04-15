@@ -8,8 +8,6 @@
       Sortable.create(ulElement, {
         group: 'dashboard',
         animation: 100,
-        ghostClass: 'bg-secondary',
-        touchStartThreshold: 10,
         sort:true,
       })
     })
@@ -97,7 +95,11 @@
       <span class="">human2</span>
     </div>
     <ul class="content">
-      <li class="active:bg-secondary"></li>
+      <li class="active:bg-secondary">뽀모도로 시계</li>
+      <li class="active:bg-secondary">메모작성, 검색!!!</li>
+      <li class="active:bg-secondary">제텔카스텐 서지</li>
+      <li class="active:bg-secondary">시작페이지 스크롤 로딩 기능소개</li>
+      <li class="active:bg-secondary">타입스크립트 리팩토링</li>
     </ul>
     <div class="title text-white px-2 bg-neutral hover:bg-secondary text-xl text-center">
       <span class="">human3</span>
@@ -106,12 +108,60 @@
       <li class="active:bg-secondary">releaseNote 페이지 작성</li>
       <li class="active:bg-secondary">sortablejs 반영</li>
       <li class="active:bg-secondary">data 구조 만들기 아직 못함</li>
+      <li class="active:bg-secondary">svelte-motion 사용해봄. </li>
+      <li class="active:bg-secondary">이건 앱이 완성되면 적용해도 괜찮을듯</li>
     </ul>
   </div>
 
   <div class="basis-1/4 complete">
     <div class="text-center text-2xl">Complete</div>
-
+    <div class="title text-white px-2 bg-neutral hover:bg-secondary text-xl text-center">
+      <span class="">22.4.15</span>
+    </div>
+    <ul class="content">
+      <li class="active:bg-secondary">문서작성페이지 ui 근본적인 문제발견</li>
+      <li class="active:bg-secondary">화면 크기를 변경시키면 ui가 무너짐.</li>
+      <li class="active:bg-secondary">relative absoute를 사용하지 않은 죄</li>
+      <li class="active:bg-secondary">모바일 대응이 안됨</li>
+      <li class="active:bg-secondary">해상도 대응도 안됨</li>
+    </ul>
+    <div class="title text-white px-2 bg-neutral hover:bg-secondary text-xl text-center">
+      <span class="">22.4.14</span>
+    </div>
+    <ul class="content">
+      <li class="active:bg-secondary">세로스크롤바 테마적용</li>
+      <li class="active:bg-secondary">가로스크롤바에서 문제가 있음. 사용못하게</li>
+      <li class="active:bg-secondary">dom 바인딩 예제 문서</li>
+      <li class="active:bg-secondary">accordion 예제, 모듈화</li>
+      <li class="active:bg-secondary">컴포넌트 속성 prop 사용</li>
+    </ul>
+    <div class="title text-white px-2 bg-neutral hover:bg-secondary text-xl text-center">
+      <span class="">22.4.13</span>
+    </div>
+    <ul class="content">
+      <li class="active:bg-secondary">마우스트랩 사용 실패, 바인딩키워드오류?</li>
+      <li class="active:bg-secondary">스벨트 전용 마우스트랩 라이브러리 사용</li>
+      <li class="active:bg-secondary">editorjs 예제 사용</li>
+      <li class="active:bg-secondary">인풋박스 안에서는 마우스트랩 사용불가</li>
+      <li class="active:bg-secondary">사이드바 모양 다시 잡기</li>
+      <li class="active:bg-secondary">단축키 문제로 editorjs 사용 보류</li>
+      <li class="active:bg-secondary">단축키 서치포커스, 메뉴버튼 작동</li>
+    </ul>
+    <div class="title text-white px-2 bg-neutral hover:bg-secondary text-xl text-center">
+      <span class="">22.4.12</span>
+    </div>
+    <ul class="content">
+      <li class="active:bg-secondary">문서작성페이지 ui레이아웃</li>
+      <li class="active:bg-secondary">테마셀렉트</li>
+      <li class="active:bg-secondary">tw-elements 충돌, 삭제-> 기능전환</li>
+    </ul>
+    <div class="title text-white px-2 bg-neutral hover:bg-secondary text-xl text-center">
+      <span class="">22.4.10~11</span>
+    </div>
+    <ul class="content">
+      <li class="active:bg-secondary">openbase 라이브러리 아이쇼핑</li>
+      <li class="active:bg-secondary">목록 npm.md 파일로 작성</li>
+    </ul>
     <div class="title text-white px-2 bg-neutral hover:bg-secondary text-xl text-center">
       <span class="">22.4.9</span>
     </div>
@@ -119,9 +169,6 @@
       <li class="active:bg-secondary">회원 가입, 로그인 성공</li>
       <li class="active:bg-secondary">세션완성</li>
       <li class="active:bg-secondary">네비바에 회원가입 로그인 => 계정 클릭메뉴</li>
-      <li class="active:bg-secondary"></li>
-      <li class="active:bg-secondary"></li>
-      <li class="active:bg-secondary"></li>
     </ul>
 
     <div class="title text-white px-2 bg-neutral hover:bg-secondary text-xl text-center">
@@ -174,7 +221,11 @@
   <div class="basis-1/4 learn">
     <div class="text-center text-2xl">Learn</div>
     <ul class="content">
-      <li class="active:bg-secondary">ing</li>
+      <li class="active:bg-secondary">canvas</li>
+      <li class="active:bg-secondary">뽀모도로 시계 사이드바에 장착</li>
+      <li class="active:bg-secondary">Electron</li>
+      <li class="active:bg-secondary">Flutter</li>
+      <li class="active:bg-secondary">스벨트 로딩</li>
     </ul>
   </div>
 </div>

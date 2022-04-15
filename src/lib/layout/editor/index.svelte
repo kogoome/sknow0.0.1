@@ -7,6 +7,7 @@
   import mousetrap from 'svelte-use-mousetrap';
   import Sortable from 'sortablejs';
   import {accordionOpen} from './accordion'
+  import {Motion} from "svelte-motion";
   let accordionList = null
   onMount(() => {
     themeChange(false)
@@ -65,15 +66,18 @@
         </a>
       </div>
       <!-- 서치바 -->
-      <div class="relative z-0 group mb-5 ml-5 mr-5 mt-5">
-        <!-- svelte-ignore a11y-mouse-events-have-key-events -->
-        <input id="search" type="text" name="search" class="block h-8 px-5 w-full rounded-2xl  border-gray-300 text-md text-gray-300 text-center bg-transparent appearance-none focus:outline-none focus:ring-0 peer " placeholder=" " required />
-        <label for="search" class="absolute peer-focus:bg-secondary-focus px-2 duration-300 rounded-3xl transform -translate-y-7 scale-75 z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 whitespace-nowrap peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 text-gray-300 text-lg on:click={()=>document.getElementById('search').focus()}">
-          <div class="tooltip tooltip-accent tooltip-right to-violet-600 " data-tip="Ctrl+<Shift>+F">
-            Search
-          </div>
-        </label>
-      </div>
+      <Motion
+        whileHover={{ scale: 1.2, transition: { duration: .5 } }}
+        let:motion>
+        <div use:motion class="relative z-0 group mb-5 ml-5 mr-5 mt-5">
+          <input id="search" type="text" name="search" class="block h-8 px-5 w-full rounded-2xl  border-gray-300 text-md text-gray-300 text-center bg-transparent appearance-none focus:outline-none focus:ring-0 peer " placeholder=" " required />
+          <label for="search" class="absolute peer-focus:bg-secondary-focus px-2 duration-300 rounded-3xl transform -translate-y-7 scale-75 z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 whitespace-nowrap peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 text-gray-300 text-lg on:click={()=>document.getElementById('search').focus()}">
+            <div class="tooltip tooltip-accent tooltip-right to-violet-600 " data-tip="Ctrl+<Shift>+F">
+              Search
+            </div>
+          </label>
+        </div>
+      </Motion>
       <!-- 목차 -->
       <div bind:this={accordionList} class="flex flex-col justify-start">
         <div class="">
@@ -147,6 +151,9 @@
           </li>
           <li type="botton" class="bg-base-300 px-4 rounded-t-md active:bg-base-100 hover:bg-base-100">
             <a href="/{user}/ex/releaseNote">releaseNote</a>
+          </li>
+          <li type="botton" class="bg-base-300 px-4 rounded-t-md active:bg-base-100 hover:bg-base-100">
+            <a href="/{user}/ex/motion">svelte-motion</a>
           </li>
           <li type="botton" class="bg-base-300 px-4 rounded-t-md active:bg-base-100 hover:bg-base-100">
             <a href="/{user}/ex/overflow">overflow</a>

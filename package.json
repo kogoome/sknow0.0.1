@@ -28,6 +28,7 @@
 	"type": "module",
 	"dependencies": {
 		"@editorjs/editorjs": "^2.23.2",
+		"@emotion/is-prop-valid": "^1.1.2",
 		"bcrypt": "^5.0.1",
 		"cookie": "^0.4.2",
 		"daisyui": "^2.13.6",
@@ -36,6 +37,7 @@
 		"mongoose": "^6.2.10",
 		"sortablejs": "^1.15.0",
 		"svelte-editorjs": "^0.1.0",
+		"svelte-motion": "^0.11.2",
 		"svelte-use-mousetrap": "^1.0.1",
 		"theme-change": "^2.0.2",
 		"uuid": "^8.3.2"

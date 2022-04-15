@@ -4,7 +4,7 @@
     const {origin, pathname, href} = url
     return { 
       props:{ origin, user, },
-      // stuff:{ user },
+      stuff:{ user },
     }
   }
 </script>
