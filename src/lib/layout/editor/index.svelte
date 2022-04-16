@@ -6,9 +6,11 @@
   import { openSidebar,resizer,searchFocus } from './keySidebar'
   import mousetrap from 'svelte-use-mousetrap';
   import Sortable from 'sortablejs';
-  import {accordionOpen} from './accordion'
-  import {Motion} from "svelte-motion";
+  import { accordionOpen } from './accordion'
+  import { Motion } from "svelte-motion";
   let accordionList = null
+
+  // 유져 페이지 진입시 파라매터로 유져 정보 보여주는데, 세션키값으로 인증절차 필요. 구현안됨
   onMount(() => {
     themeChange(false)
     // nav tap dnd
@@ -34,15 +36,11 @@
   // 1. 태그속성으로 데이터 수신
   export let user = "unknown" // 받는값이 없으면 초기값으로 대체
   // 2. $page.stuff.user 페이지데이터로 수신
-  $: keyword ="node"
+  $: keyword ="main, other1, other2"
   const pressEnter=async (e)=>{
-    if(e.keyCode==13){
-      await fetch('/api/node/searchname',{
-        method:"GET",
-        body:JSON.stringify({keyword})
-      }).then(res=>res.json()).catch(err=>alert(err))
-    }
+    if(e.keyCode==13) window.location.href=`/${user}/search?nodes=${keyword}`
   }
+
 </script>
 <!-- 마우스트랩, mousetrap->keyboard ? 그냥 있는그대로 쓰자,
   단축키 함수는 앞에 key 이름을 붙이는건 어떤지? searchFocus-> keySearchFocus. 좋은데 두 함수가 분리가 안되있네 그냥 쓰자.
@@ -82,7 +80,7 @@
           <input id="search" bind:value={keyword} on:keydown={pressEnter} type="text" name="search" class="block h-8 px-5 w-full rounded-2xl  border-gray-300 text-md text-gray-300 text-center bg-transparent appearance-none focus:outline-none focus:ring-0 peer " placeholder=" " required />
           <label for="search" class="absolute peer-focus:bg-secondary-focus px-2 duration-300 rounded-3xl transform -translate-y-7 scale-75 z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 whitespace-nowrap peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 text-gray-300 text-lg on:click={()=>document.getElementById('search').focus()}">
             <div class="tooltip tooltip-accent tooltip-right to-violet-600 " data-tip="Ctrl+<Shift>+F">
-              Search
+              Search Nodes
             </div>
           </label>
         </div>

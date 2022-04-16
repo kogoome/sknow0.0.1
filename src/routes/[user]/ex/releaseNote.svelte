@@ -41,7 +41,7 @@
   }
 </script>
 
-<div bind:this={todo} class="flex flex-row w-full p-10 gap-2 overflow-y-auto">
+<div bind:this={todo} class="contentRoot flex flex-row w-full p-10 gap-2">
   <div class="basis-1/4 todo">
     <div class="text-center text-2xl">Todo</div>
     <div class="title text-white px-2 bg-neutral hover:bg-secondary text-xl text-center">
@@ -110,6 +110,16 @@
       <li class="active:bg-secondary">data 구조 만들기 아직 못함</li>
       <li class="active:bg-secondary">svelte-motion 사용해봄. </li>
       <li class="active:bg-secondary">이건 앱이 완성되면 적용해도 괜찮을듯</li>
+    </ul>
+    <div class="title text-white px-2 bg-neutral hover:bg-secondary text-xl text-center">
+      <span class="">4.17</span>
+    </div>
+    <ul class="content">
+      <li class="active:bg-secondary">search 페이지 작성중. </li>
+      <li class="active:bg-secondary">search에 키워드 입력하여 검색, 엔터키작동인데 버튼 필요. 라벨이용하면 될듯 </li>
+      <li class="active:bg-secondary">node 검색 </li>
+      <li class="active:bg-secondary">node 가능성 여부에 관하여, </li>
+      <li class="active:bg-secondary">쿼리의 필요성: 디비 사용량을 줄여주는듯 </li>
     </ul>
   </div>
 

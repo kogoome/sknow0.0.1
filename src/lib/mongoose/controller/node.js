@@ -1,13 +1,14 @@
 import schema from '../model/model.js'
 const {Node} = schema
 
-const readNode = async (nodename)=>{
-	const node = await Node.findOne({nodename})
-	console.log(node)
-	// 노드가 검색되면 1, 아니면 0 으로 입력
-	const isExist = 1 // 임시
-	return isExist
+
+const readNode = async (nodeArr)=>{
+	const orCondition = nodeArr.map(word=>({name:word}))
+	console.log(orCondition)
+	const nodes = await Node.find().or(orCondition)
+	return nodes
 }
+
 
 const writeNode =async (name, description)=> {
 	const isExist = await readNode(name)
