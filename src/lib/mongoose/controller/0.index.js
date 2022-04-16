@@ -1,10 +1,9 @@
 import User from './user.js'
-
+import Node from './node.js'
 
 const controlList = {
   User,
-  // Article,
-  // Comment,
+  Node,
 }
 
 export default controlList
