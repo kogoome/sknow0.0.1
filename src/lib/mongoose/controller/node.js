@@ -6,6 +6,7 @@ const readNode = async (nodeArr)=>{
 	const orCondition = nodeArr.map(word=>({name:word}))
 	console.log(orCondition)
 	const nodes = await Node.find().or(orCondition)
+	console.log(nodes)
 	return nodes
 }
 

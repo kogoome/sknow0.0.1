@@ -15,5 +15,9 @@
 
 <svelte:head> <title>{user}'sKnow</title> </svelte:head>
 
-<!-- 태그 속성으로 데이터전달, 슬롯은 다음 태그문서 슬롯으로 전달 -->
-<Editorlayout {user}><slot {user}/></Editorlayout>
+<!-- 가로스크롤 방지 -->
+<div class="overflow-hidden">
+  <!-- 태그 속성으로 데이터전달, 슬롯은 다음 태그문서 슬롯으로 전달 -->
+  <!-- 슬롯에는 프롭전달이 안됨. -->
+  <Editorlayout {user}><slot/></Editorlayout>
+</div>

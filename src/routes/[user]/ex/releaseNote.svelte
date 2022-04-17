@@ -121,6 +121,17 @@
       <li class="active:bg-secondary">node 가능성 여부에 관하여, </li>
       <li class="active:bg-secondary">쿼리의 필요성: 디비 사용량을 줄여주는듯 </li>
     </ul>
+    <div class="title text-white px-2 bg-neutral hover:bg-secondary text-xl text-center">
+      <span class="">4.18</span>
+    </div>
+    <ul class="content">
+      <li class="active:bg-secondary">테일윈드로 accordion 작성. peer클래스는 아주 좋다</li>
+      <li class="active:bg-secondary">node 쓰기 기능 필요</li>
+      <li class="active:bg-secondary">edge 쓰기기능 필요</li>
+      <li class="active:bg-secondary">edge 쓰고 나서 node 검색에 edge path 검색추가</li>
+      <li class="active:bg-secondary"></li>
+      <li class="active:bg-secondary"></li>
+    </ul>
   </div>
 
   <div class="basis-1/4 complete">

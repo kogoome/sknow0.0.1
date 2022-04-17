@@ -12,7 +12,7 @@ export const get = async ({url})=>{
 
 	return {
 		body: {
-			message:"hello"
+			resNodes
 		}
 	}
 }
