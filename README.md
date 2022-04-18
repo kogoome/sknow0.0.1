@@ -1,6 +1,3 @@
-# .env
-DB_URL = 'mongodb+srv://kogoome:1231@cluster0.pjzwy.mongodb.net/project_sknow?retryWrites=true&w=majority'
-
 # git
 git login
 
