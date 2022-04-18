@@ -10,7 +10,6 @@
       { title: 'School', link: '/school' },
       { title: 'Agora', link: '/agora' },
       { title: 'Team', link: '/team' },
-      { title: 'ReleaseNote', link: '/release' },
     ]
       
   $: link=$page.url.pathname
