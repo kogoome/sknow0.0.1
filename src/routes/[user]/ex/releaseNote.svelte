@@ -102,15 +102,30 @@
       <li class="active:bg-secondary">타입스크립트 리팩토링</li>
     </ul>
     <div class="title text-white px-2 bg-neutral hover:bg-secondary text-xl text-center">
-      <span class="">human3</span>
+      <span class="">4.18</span>
     </div>
     <ul class="content">
-      <li class="active:bg-secondary">releaseNote 페이지 작성</li>
-      <li class="active:bg-secondary">sortablejs 반영</li>
-      <li class="active:bg-secondary">data 구조 만들기 아직 못함</li>
-      <li class="active:bg-secondary">svelte-motion 사용해봄. </li>
-      <li class="active:bg-secondary">이건 앱이 완성되면 적용해도 괜찮을듯</li>
+      <li class="active:bg-secondary">테일윈드로 accordion 작성. peer클래스는 아주 좋다</li>
+      <li class="active:bg-secondary">node 쓰기 기능 필요</li>
+      <li class="active:bg-secondary">edge 쓰기기능 필요</li>
+      <li class="active:bg-secondary">edge 쓰고 나서 node 검색에 edge path 검색추가</li>
     </ul>
+    <div class="title text-white px-2 bg-neutral hover:bg-secondary text-xl text-center">
+      <span class="">4.19</span>
+    </div>
+    <ul class="content">
+      <li class="active:bg-secondary">서치 모달 레이아웃 작성</li>
+      <li class="active:bg-secondary"></li>
+    </ul>
+    
+    
+  </div>
+
+  <div class="basis-1/4 complete">
+    <div class="text-center text-2xl">Complete</div>
+    <!-- complete insert here -->
+
+
     <div class="title text-white px-2 bg-neutral hover:bg-secondary text-xl text-center">
       <span class="">4.17</span>
     </div>
@@ -121,21 +136,17 @@
       <li class="active:bg-secondary">node 가능성 여부에 관하여, </li>
       <li class="active:bg-secondary">쿼리의 필요성: 디비 사용량을 줄여주는듯 </li>
     </ul>
+
     <div class="title text-white px-2 bg-neutral hover:bg-secondary text-xl text-center">
-      <span class="">4.18</span>
+      <span class="">22.4.16</span>
     </div>
     <ul class="content">
-      <li class="active:bg-secondary">테일윈드로 accordion 작성. peer클래스는 아주 좋다</li>
-      <li class="active:bg-secondary">node 쓰기 기능 필요</li>
-      <li class="active:bg-secondary">edge 쓰기기능 필요</li>
-      <li class="active:bg-secondary">edge 쓰고 나서 node 검색에 edge path 검색추가</li>
-      <li class="active:bg-secondary"></li>
-      <li class="active:bg-secondary"></li>
+      <li class="active:bg-secondary">releaseNote 페이지 작성</li>
+      <li class="active:bg-secondary">sortablejs 반영</li>
+      <li class="active:bg-secondary">data 구조 만들기 아직 못함</li>
+      <li class="active:bg-secondary">svelte-motion 사용해봄. </li>
+      <li class="active:bg-secondary">이건 앱이 완성되면 적용해도 괜찮을듯</li>
     </ul>
-  </div>
-
-  <div class="basis-1/4 complete">
-    <div class="text-center text-2xl">Complete</div>
     <div class="title text-white px-2 bg-neutral hover:bg-secondary text-xl text-center">
       <span class="">22.4.15</span>
     </div>

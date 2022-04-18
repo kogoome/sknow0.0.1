@@ -4,10 +4,10 @@
   import { onMount } from 'svelte'
   import { themeChange } from 'theme-change'
   import { openSidebar,resizer,searchFocus } from './keySidebar'
-  import mousetrap from 'svelte-use-mousetrap';
-  import Sortable from 'sortablejs';
+  import mousetrap from 'svelte-use-mousetrap'
+  import Sortable from 'sortablejs'
   import { accordionOpen } from './accordion'
-  import { Motion } from "svelte-motion";
+  import { Motion } from "svelte-motion"
   let accordionList = null
 
   // 유져 페이지 진입시 파라매터로 유져 정보 보여주는데, 세션키값으로 인증절차 필요. 구현안됨
@@ -37,24 +37,30 @@
   export let user = "unknown" // 받는값이 없으면 초기값으로 대체
   // 2. $page.stuff.user 페이지데이터로 수신
 
-  // search function
-  $: keyword ="main, other1, other2"
-  const pressEnter= (e)=>{if(e.keyCode==13) window.location.href=`/${user}/search?nodes=${keyword}`}
-  const searchBtn = ()=>window.location.href=`/${user}/search?nodes=${keyword}` 
-
+  $: keyword =""
+  $: searchModal = false
+  const searchModalOpen = () => { 
+    searchModal = !searchModal 
+    searchFocus()
+  }
+  const pressEnter= (e)=>{if(e.keyCode==13) {
+    searchModal = true
+    setTimeout(()=>{ document.getElementById("searchModal").focus() },100)
+  }}
+  // 서치 인풋이 포커싱, 또는 엔터 누르면 모달 오픈
+  // esc 누르거나 다른곳 누르면 모달 클로즈
 </script>
-<!-- 마우스트랩, mousetrap->keyboard ? 그냥 있는그대로 쓰자,
-  단축키 함수는 앞에 key 이름을 붙이는건 어떤지? searchFocus-> keySearchFocus. 좋은데 두 함수가 분리가 안되있네 그냥 쓰자.
--->
-<div use:mousetrap={[
-  [['ctrl+shift+f'], searchFocus],
-  [['ctrl+shift+e'], openSidebar],
-]}></div>
 
-<!-- 툴팁
-<div class="tooltip tooltip-accent tooltip-top to-violet-600 " data-tip="Ctrl+<Shift>+F">
-  Search
-</div> -->
+<div use:mousetrap={[
+  [['ctrl+shift+f'], ()=>{
+    searchModal = !searchModal;
+    setTimeout(()=>{
+      if(searchModal) document.getElementById("searchModal").focus()
+    },100)
+  }],
+  [['ctrl+shift+e'], openSidebar],
+  [['esc'], ()=>{searchModal = false}],
+]}></div>
 
 <style> 
   #search { border-width: 1px; } 
@@ -63,9 +69,9 @@
 
 <div id="container" class="flex flex-row h-screen transition-all duration-500">
   <!-- 사이드바 그룹 -->
-  <div id="sidebarBox" class="flex-none flex flex-row w-64 max-w-6xl relative transition-all duration-500 select-none">
+  <div id="sidebarBox" class="flex-none flex flex-row w-64 max-w-6xl relative transition-all duration-500 select-none z-20">
     <!-- 사이드바 -->
-    <div id="sidebar" class="flex-none w-64 bg-neutral h-screen top-0 left-0 overflow-x-hidden transition-all duration-500 flex flex-col justify-start">
+    <div id="sidebar" class="flex-none w-64 bg-neutral h-screen top-0 left-0 overflow-x-hidden transition-all duration-500 flex flex-col justify-start max-w-6xl">
       <!-- 사이드바 로고 -->
       <div class="text-2xl text-white p-3 mt-5 text-center ">
         <a href="/{user}">
@@ -74,17 +80,15 @@
         </a>
       </div>
       <!-- 서치바 -->
-      <Motion
-        whileHover={{ scale: 1.2, transition: { duration: .5 } }}
-        let:motion>
-        <div use:motion class="relative z-0 group mb-5 ml-5 mr-5 mt-5">
-          <input id="search" bind:value={keyword} on:keydown={pressEnter} type="text" name="search" class="block h-8 px-5 w-full rounded-2xl  border-gray-300 text-md text-gray-300 text-center bg-transparent appearance-none focus:outline-none focus:ring-0 peer " placeholder=" " required />
-          <label for="search" on:click={searchBtn} class="absolute peer-focus:bg-secondary-focus px-2 duration-300 rounded-3xl transform -translate-y-7 scale-75 z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 whitespace-nowrap peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 text-gray-300 text-lg on:click={()=>document.getElementById('search').focus()}">
-            <div class="tooltip tooltip-accent tooltip-right to-violet-600 " data-tip="Ctrl+<Shift>+F">
-              Search Nodes
-            </div>
-          </label>
-        </div>
+      <Motion whileHover={{ scale: 1.1, transition: { duration: .3 } }} let:motion>
+      <div use:motion class="relative z-0 group mb-5 ml-5 mr-5 mt-5">
+        <input id="search" bind:value={keyword} type="text" name="search" class="block h-8 px-5 w-full rounded-2xl  border-gray-300 text-md text-gray-300 text-center bg-transparent appearance-none focus:outline-none focus:ring-0 peer " placeholder=" " on:keydown={pressEnter}/>
+        <label for="search" class="absolute peer-focus:bg-secondary-focus px-2 duration-300 rounded-3xl transform -translate-y-7 scale-75 z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 whitespace-nowrap peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 text-gray-300 text-lg on:click={()=>document.getElementById('search').focus()}">
+          <div class="tooltip tooltip-accent tooltip-right to-violet-600 " data-tip="Ctrl+<Shift>+F">
+            Search Nodes
+          </div>
+        </label>
+      </div>
       </Motion>
       <!-- 목차 -->
       <div bind:this={accordionList} class="flex flex-col justify-start">
@@ -137,9 +141,9 @@
     <button id="resizer" class="absolute active:bg-secondary-focus w-1 h-full z-10 right-0" style="cursor:col-resize" on:mousedown={resizer}></button>
   </div>
   <!-- 네비 & 컨텐츠 -->
-  <div id="content" class="grow flex flex-col h-screen transition-all duration-500">
+  <div id="content" class="grow flex flex-col h-screen transition-all duration-500 z-20">
     <!-- 네비게이션 -->
-    <div class="flex-none w-full h-auto bg-neutral flex flex-row select-none">
+    <div class="flex-none w-full h-auto bg-neutral flex flex-row select-none z-30">
       <!-- 네비 왼쪽 메뉴 홈 탭 -->
       <div class="flex-none flex flex-row gap-1">
         <!-- 메뉴 -->
@@ -187,14 +191,38 @@
       <div class="flex-none pr-3 "> <Theme/> </div>
     </div>
     <!-- 컨텐츠 -->
-    <div class="grow flex flex-row">
+    <div class="grow flex flex-row relative">
       <div class="flex-auto">
         <!-- 에디터 태그 사이 슬롯이 여기 -->
         <slot/> 
+        <!-- 서치 모달창 -->
+        {#if searchModal}
+          <div class="modalbg w-full h-full absolute z-20 left-0 top-0 flex flex-row justify-center transition-all" on:click={()=>searchModal=false}>
+            <div class="bg-base-100 w-3/5 h-4/5 rounded-2xl py-5 m-auto flex flex-col" on:click={(e)=>e.stopPropagation()}>
+              <header class="flex-none flex flex-row px-5 pb-5 gap-5">
+                <i class="fa-solid fa-magnifying-glass m-auto"></i>
+                <input id="searchModal" class="grow text-2xl bg-base-100 focus:outline-none border-b-2" bind:value={keyword} placeholder="search nodes">
+                <div><kbd>esc</kbd></div>
+              </header>
+              <div class="grow overflow-y-auto px-5">
+                <h3 class="font-bold text-lg">Congratulations random Interner user!</h3>
+                <p class="py-4">
+                  You've been selected for a chance to get one year of subscription to use Wikipedia for free! 
+                </p>
+                <p class="py-4">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis beatae eius nobis numquam nulla consequatur, reiciendis et commodi minus, architecto doloribus perferendis dignissimos eos? Commodi id officiis facilis ducimus placeat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis beatae eius nobis numquam nulla consequatur, reiciendis et commodi minus, architecto doloribus perferendis dignissimos eos? Commodi id officiis facilis ducimus placeat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis beatae eius nobis numquam nulla consequatur, reiciendis et commodi minus, architecto doloribus perferendis dignissimos eos? Commodi id officiis facilis ducimus placeat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis beatae eius nobis numquam nulla consequatur, reiciendis et commodi minus, architecto doloribus perferendis dignissimos eos? Commodi id officiis facilis ducimus placeat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis beatae eius nobis numquam nulla consequatur, reiciendis et commodi minus, architecto doloribus perferendis dignissimos eos? Commodi id officiis facilis ducimus placeat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis beatae eius nobis numquam nulla consequatur, reiciendis et commodi minus, architecto doloribus perferendis dignissimos eos? Commodi id officiis facilis ducimus placeat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis beatae eius nobis numquam nulla consequatur, reiciendis et commodi minus, architecto doloribus perferendis dignissimos eos? Commodi id officiis facilis ducimus placeat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis beatae eius nobis numquam nulla consequatur, reiciendis et commodi minus, architecto doloribus perferendis dignissimos eos? Commodi id officiis facilis ducimus placeat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis beatae eius nobis numquam nulla consequatur, reiciendis et commodi minus, architecto doloribus perferendis dignissimos eos? Commodi id officiis facilis ducimus placeat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis beatae eius nobis numquam nulla consequatur, reiciendis et commodi minus, architecto doloribus perferendis dignissimos eos? Commodi id officiis facilis ducimus placeat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis beatae eius nobis numquam nulla consequatur, reiciendis et commodi minus, architecto doloribus perferendis dignissimos eos? Commodi id officiis facilis ducimus placeat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis beatae eius nobis numquam nulla consequatur, reiciendis et commodi minus, architecto doloribus perferendis dignissimos eos? Commodi id officiis facilis ducimus placeat.
+                </p>
+              </div>
+              <footer class="flex-none px-5 text-2xl">footer</footer>
+            </div>
+          </div>
+        {/if}
       </div>
-      <!-- 목차보기 -->
+      <!-- 컨텐츠 목차 영역 -->
       <!-- <div class="flex-none w-32 bg-base-200"></div> -->
+      
     </div>
     <!-- <div class="flex-none h-5 w-full bg-neutral text-white text-sm">footer</div> -->
+    
   </div>
 </div>

@@ -61,4 +61,32 @@
 	<div class="bg-secondary-focus">secondary-focus</div>
 	<div class="bg-secondary-content">secondary-content</div>
 
+	htmltag, accodion
+	<details class="open:bg-base-200">
+		<summary class="text-sm select-none">
+			title
+		</summary>
+		<div class="">
+			<p class="pl-2">list 1</p>
+			<p class="pl-2">list 1</p>
+			<p class="pl-2">list 1</p>
+			<p class="pl-2">list 1</p>
+			<p class="pl-2">
+				<details class="open:bg-base-200">
+					<summary class="text-sm select-none">
+						title
+					</summary>
+					<div class="">
+						<p class="pl-2">list 1</p>
+						<p class="pl-2">list 1</p>
+						<p class="pl-2">list 1</p>
+						<p class="pl-2">list 1</p>
+						<p class="pl-2">
+						</p>
+					</div>
+				</details>
+			</p>
+		</div>
+	</details>
+
 </div>
