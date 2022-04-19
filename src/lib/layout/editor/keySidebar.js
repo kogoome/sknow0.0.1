@@ -40,11 +40,11 @@ export const resizer = () => {
 
 
 // 단축키 전용-------------------------------------------------
-export const searchFocus = () => {
-  if (drawerOpen) {
-    document.getElementById('search').focus()
-  } else {
-    setTimeout(() => { document.getElementById('search').focus() }, 400)
-    openSidebar()
-  }
-}
+// export const searchFocus = () => {
+//   if (drawerOpen) {
+//     document.getElementById('search').focus()
+//   } else {
+//     setTimeout(() => { document.getElementById('search').focus() }, 400)
+//     openSidebar()
+//   }
+// } 폐기

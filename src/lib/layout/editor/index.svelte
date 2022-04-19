@@ -1,9 +1,8 @@
 <script>
-  // import { page } from '$app/stores'
-  import Theme from '$lib/featureComponent/theme-select.svelte'
   import { onMount } from 'svelte'
   import { themeChange } from 'theme-change'
-  import { openSidebar,resizer,searchFocus } from './keySidebar'
+  import Theme from '$lib/featureComponent/theme-select.svelte'
+  import { openSidebar,resizer } from './keySidebar'
   import mousetrap from 'svelte-use-mousetrap'
   import Sortable from 'sortablejs'
   import { accordionOpen } from './accordion'
@@ -37,25 +36,53 @@
   export let user = "unknown" // 받는값이 없으면 초기값으로 대체
   // 2. $page.stuff.user 페이지데이터로 수신
 
-  $: keyword =""
+  // @대분류 #노드 $엣지
+  // @수학 #이차방정식 $근
+  // #이차방정식 #근 $근의공식, 겟방식으로 전송안댐
+  $: keyword ="@수학 #이차방정식 $근의공식"
   $: searchModal = false
-  const searchModalOpen = () => { 
-    searchModal = !searchModal 
-    searchFocus()
+
+  // 키코드 함수
+  const pressSearchInput= (e)=>{
+    if(e.keyCode==13) {
+      searchModal = true
+      const focus = setTimeout(()=>{ 
+        document.getElementById("searchModal").focus() 
+        clearTimeout(focus)
+      },100)
+      searchNodes()
+    } else if (e.keyCode==27 || e.keyCode==17) {
+      e.target.blur()
+    } 
   }
-  const pressEnter= (e)=>{if(e.keyCode==13) {
-    searchModal = true
-    setTimeout(()=>{ document.getElementById("searchModal").focus() },100)
-  }}
-  // 서치 인풋이 포커싱, 또는 엔터 누르면 모달 오픈
-  // esc 누르거나 다른곳 누르면 모달 클로즈
+  const pressModalInput= (e)=>{
+    if(e.keyCode==27) {
+      // esc 모달 닫기
+      searchModal = false
+    } else if (e.keyCode==17) {
+      // ctrl 포커싱 버리기
+      document.getElementById("searchModal").blur()
+    } else if (e.keyCode==13) {
+      // enter 검색
+      searchNodes()
+    }
+  }
+  // 검색함수
+  const searchNodes = async ()=>{
+    const searchRes = await fetch('/api/document/search_node' ,{
+			method:"POST",
+      body:JSON.stringify({keyword}),
+		}).then(res=>res.json()).catch(err=>alert(err))
+    // console.log("🚀 ~ file: index.svelte ~ line 73 ~ searchNodes ~ searchRes", searchRes)
+  }
 </script>
 
 <div use:mousetrap={[
   [['ctrl+shift+f'], ()=>{
     searchModal = !searchModal;
-    setTimeout(()=>{
+    const focus = setTimeout(()=>{
       if(searchModal) document.getElementById("searchModal").focus()
+      clearTimeout(focus)
     },100)
   }],
   [['ctrl+shift+e'], openSidebar],
@@ -82,8 +109,8 @@
       <!-- 서치바 -->
       <Motion whileHover={{ scale: 1.1, transition: { duration: .3 } }} let:motion>
       <div use:motion class="relative z-0 group mb-5 ml-5 mr-5 mt-5">
-        <input id="search" bind:value={keyword} type="text" name="search" class="block h-8 px-5 w-full rounded-2xl  border-gray-300 text-md text-gray-300 text-center bg-transparent appearance-none focus:outline-none focus:ring-0 peer " placeholder=" " on:keydown={pressEnter}/>
-        <label for="search" class="absolute peer-focus:bg-secondary-focus px-2 duration-300 rounded-3xl transform -translate-y-7 scale-75 z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 whitespace-nowrap peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 text-gray-300 text-lg on:click={()=>document.getElementById('search').focus()}">
+        <input id="search" bind:value={keyword} type="text" name="search" class="block h-8 px-5 w-full rounded-2xl  border-gray-300 text-md text-gray-300 text-center bg-transparent appearance-none focus:outline-none focus:ring-0 peer " placeholder=" " on:keydown={pressSearchInput}/>
+        <label for="search" class="absolute peer-focus:bg-secondary-focus px-2 duration-300 rounded-3xl transform -translate-y-7 scale-75 z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 whitespace-nowrap peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 text-gray-300 text-lg" on:click={()=>searchModal=true}>
           <div class="tooltip tooltip-accent tooltip-right to-violet-600 " data-tip="Ctrl+<Shift>+F">
             Search Nodes
           </div>
@@ -95,10 +122,10 @@
         <div class="">
           <div class="accordion text-white px-5
           bg-neutral hover:bg-secondary 
-          transition ease-in-out ">
+          transition ease-in-out">
             <i class="fa-solid fa-caret-right pointer-events-none w-3"></i>
-            <span class="pointer-events-none">node</span>
-            <!-- <i class="fa-solid fa-circle-plus ml-auto"></i> -->
+            <span class="grow pointer-events-none ">node</span>
+            <i class="fa-solid fa-circle-plus ml-auto"></i>
           </div>
           <ul class="accordion-content overflow-hidden max-h-0 transition-all duration-300">
             <li class="active:bg-secondary px-6">컨텐츠1</li>
@@ -163,25 +190,7 @@
             <a href="/{user}/default">default</a>
           </li>
           <li type="botton" class="bg-base-300 px-4 rounded-t-md active:bg-base-100 hover:bg-base-100">
-            <a href="/{user}/ex/releaseNote">releaseNote</a>
-          </li>
-          <li type="botton" class="bg-base-300 px-4 rounded-t-md active:bg-base-100 hover:bg-base-100">
-            <a href="/{user}/ex/motion">svelte-motion</a>
-          </li>
-          <li type="botton" class="bg-base-300 px-4 rounded-t-md active:bg-base-100 hover:bg-base-100">
-            <a href="/{user}/ex/overflow">overflow</a>
-          </li>
-          <li type="botton" class="bg-base-300 px-4 rounded-t-md active:bg-base-100 hover:bg-base-100">
-            <a href="/{user}/ex/sortablejs">sortablejs</a>
-          </li>
-          <li type="botton" class="bg-base-300 px-4 rounded-t-md active:bg-base-100 hover:bg-base-100">
-            <a href="/{user}/ex/editorjs">editorjs</a>
-          </li>
-          <li type="botton" class="bg-base-300 px-4 rounded-t-md active:bg-base-100 hover:bg-base-100">
-            <a href="/{user}/ex/mousetrap">mousetrap</a>
-          </li>
-          <li type="botton" class="bg-base-300 px-4 rounded-t-md active:bg-base-100 hover:bg-base-100">
-            <a href="/{user}/ex/bindElement">bindElement</a>
+            <a href="/{user}/releaseNote">releaseNote</a>
           </li>
         </ul>
       </div>
@@ -198,11 +207,11 @@
         <!-- 서치 모달창 -->
         {#if searchModal}
           <div class="modalbg w-full h-full absolute z-20 left-0 top-0 flex flex-row justify-center transition-all" on:click={()=>searchModal=false}>
-            <div class="bg-base-100 w-3/5 h-4/5 rounded-2xl py-5 m-auto flex flex-col" on:click={(e)=>e.stopPropagation()}>
-              <header class="flex-none flex flex-row px-5 pb-5 gap-5">
-                <i class="fa-solid fa-magnifying-glass m-auto"></i>
-                <input id="searchModal" class="grow text-2xl bg-base-100 focus:outline-none border-b-2" bind:value={keyword} placeholder="search nodes">
-                <div><kbd>esc</kbd></div>
+            <div class="bg-base-100 w-3/5 h-4/5 rounded-2xl py-3 m-auto flex flex-col" on:click={(e)=>e.stopPropagation()}>
+              <header class="flex-none flex flex-row px-5 pb-3 gap-5 border-b-2 border-secondary">
+                <i class="fa-solid fa-magnifying-glass btn btn-ghost m-auto" on:click={searchNodes}></i>
+                <input id="searchModal" class="grow text-2xl bg-base-100 focus:outline-none" bind:value={keyword} placeholder="search nodes" on:keydown={pressModalInput}>
+                <div><kbd class="kbd" on:click={()=>searchModal=false}>esc</kbd></div>
               </header>
               <div class="grow overflow-y-auto px-5">
                 <h3 class="font-bold text-lg">Congratulations random Interner user!</h3>

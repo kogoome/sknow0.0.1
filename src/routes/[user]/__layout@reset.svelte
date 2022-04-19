@@ -1,6 +1,7 @@
 <script context="module">
   export const load = async ({url, params})=>{
     const user = params.user
+    // 세션아이디와 일치하는지 확인하고 타인 계정으로 접속하지 않게.
     const {origin, pathname, href} = url
     return { 
       props:{ origin, user, },
