@@ -217,9 +217,9 @@
         <!-- 서치 모달창 -->
         {#if searchModal}
           <!-- 모달 뒷배경 -->
-          <div class="modalbg w-full h-full absolute z-20 left-0 top-0 flex flex-row justify-center transition-all" on:click={()=>searchModal=false}>
+          <div class="modalbg w-full h-full absolute z-20 left-0 top-0 flex flex-row justify-center transition-all" on:click|self={()=>searchModal=false}>
             <!-- 모달 안배경 -->
-            <div class="bg-base-100 w-3/5 h-4/5 rounded-2xl py-3 m-auto flex flex-col drop-shadow-lg" on:click={(e)=>e.stopPropagation()}>
+            <div class="bg-base-100 w-3/5 h-4/5 rounded-2xl py-3 m-auto flex flex-col drop-shadow-lg">
               <!-- 모달 헤더 -->
               <header class="flex-none flex flex-row gap-3 px-5 pb-3 border-b-2 border-secondary items-center">
                 <i class="fa-solid fa-magnifying-glass hover:text-secondary m-auto" on:click={searchNodes}></i>
