@@ -17,7 +17,8 @@
 
     return { 
 			props:{ loginId },
-			stuff:{ loginId }
+			// 네비게이션으로 스터프 보냄
+			// stuff:{ loginId }
 		}
   }
 </script>
@@ -28,6 +29,7 @@
 	import '../app.css';
 	import { onMount } from 'svelte'
   import { themeChange } from 'theme-change'
+	export let loginId
   onMount(() => {
     themeChange(false)
   })
@@ -35,6 +37,6 @@
 
 
 
-<Nav/>
+<Nav {loginId} />
 <slot />
 <Footer/>

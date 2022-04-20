@@ -20,7 +20,7 @@
         <div>채용</div>
       </div>
       <div class="flex justify-start text-slate-600 text-xs gap-6 pt-2">
-        경기도 남양주시 창현로
+        경기도 남양주시
       </div>
     </div>
   </div>

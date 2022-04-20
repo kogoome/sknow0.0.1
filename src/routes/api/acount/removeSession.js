@@ -1,6 +1,6 @@
-import controller from '$controller/0.index.js'
+import api from '$api/0.index.js'
 // User include session array
-const { User } = controller
+const { User } = api
 
 // routes>__layout
 // client sessionId -> delete server session
@@ -11,7 +11,7 @@ export const post = async ({ request }) => {
   // console.log("4 sessionId: ", sessionId);
   try {
     const session = await User.removeSession(sessionId)
-    // console.log("7. 삭제된 세션: ", session);
+    console.log("7. 삭제된 세션: ", session);
     return {
       status: 200,
       body: {

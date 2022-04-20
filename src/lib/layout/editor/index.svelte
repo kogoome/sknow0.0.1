@@ -71,9 +71,9 @@
   }
   // 검색함수
   const searchNodes = async ()=>{
-    const {result} = await fetch('/api/document/search_node' ,{
-			method:"POST",
-      body:JSON.stringify({keyword}),
+    const {result} = await fetch(`/api/document/node?search_node=${keyword.split(' ').join('+')}` ,{
+			method:"GET",
+      // body:JSON.stringify({keyword}),
 		}).then(res=>res.json()).catch(err=>alert(err))
     unregisteredNodes = result.unregisteredNodes
     registeredNodes= result.registeredNodes
@@ -119,7 +119,7 @@
       <!-- 서치바 -->
       <Motion whileHover={{ scale: 1.1, transition: { duration: .3 } }} let:motion>
       <div use:motion class="relative z-0 group mb-5 ml-5 mr-5 mt-5">
-        <input id="search" bind:value={keyword} type="text" name="search" class="block h-8 px-5 w-full rounded-2xl  border-gray-300 text-md text-gray-300 text-center bg-transparent appearance-none focus:outline-none focus:ring-0 peer " placeholder=" " on:keydown={pressSearchInput}/>
+        <input id="search" bind:value={keyword} type="text" name="search_node" class="block h-8 px-5 w-full rounded-2xl  border-gray-300 text-md text-gray-300 text-center bg-transparent appearance-none focus:outline-none focus:ring-0 peer " placeholder=" " on:keydown={pressSearchInput}/>
         <label for="search" class="absolute peer-focus:bg-secondary-focus px-2 duration-300 rounded-3xl transform -translate-y-7 scale-75 z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 whitespace-nowrap peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 text-gray-300 text-lg" on:click={()=>searchModal=true}>
           <div class="tooltip tooltip-accent tooltip-right to-violet-600 " data-tip="Ctrl+<Shift>+F">
             Search Nodes
@@ -138,6 +138,9 @@
             <a href="/{user}/registNode" class=""><i class="fa-solid fa-circle-plus text-sm"></i></a>
           </div>
           <ul class="accordion-content overflow-hidden max-h-0 transition-all duration-300">
+            <!-- 
+              카테고리 클릭시 node 페이지로 이동하고, []이용해서 해당 이름으로 정보 띄울것, 
+            -->
             <li class="active:bg-secondary px-6">카테고리1</li>
           </ul>
         </div>
@@ -220,25 +223,35 @@
               <!-- 모달 헤더 -->
               <header class="flex-none flex flex-row gap-3 px-5 pb-3 border-b-2 border-secondary items-center">
                 <i class="fa-solid fa-magnifying-glass hover:text-secondary m-auto" on:click={searchNodes}></i>
-                <input id="searchModal" class="grow text-xl bg-base-100 focus:outline-none" bind:value={keyword} placeholder="search nodes" on:keydown={pressModalInput}>
+                <input id="searchModal" class="grow text-xl bg-base-100 focus:outline-none" bind:value={keyword} placeholder="search nodes" on:keydown={pressModalInput} name="search_node">
                 <div><kbd class="kbd hover:shadow-md" on:click={()=>searchModal=false}>esc</kbd></div>
               </header>
               <!-- 모달 컨텐츠 -->
               <div class="grow overflow-y-auto p-5">
 
-                <fieldset class="flex flex-row gap-2 p-3 my-2 rounded-lg bg-base-100 items-center drop-shadow-sm border-2">
+
+                <fieldset class="p-3 my-2 rounded-lg bg-base-100 drop-shadow-sm border-2">
                   <legend>등록되지 않은 노드</legend>
-                  {#if unregisteredNodes.length>0}
-                    {#each unregisteredNodes as node }
-                      <label>
-                        <input type="checkbox" class="peer hidden">
-                        <div class="peer-checked:bg-base-200 rounded-md p-1"> {node} </div>
-                      </label>
-                    {/each}
-                    <div class="grow"></div>
-                    <button class="btn btn-ghost btn-sm h-5 hover:drop-shadow-lg">등록</button>
-                  {/if}
+                  <!--
+                  폼데이터 없에고 함수값으로 처리할것. 
+                  리턴값 후처리해서 노드리스트에 추가하게 할것.
+                  페이지 진입시 세션 확인하고 url파람과 아이디일치시, userdoc 데이터 읽어와서 사이드바 데이터에 추가 
+                  -->
+                  <form action="/api/document/node" class="flex flex-row gap-2 items-center" method="post" target="_blank">
+                    {#if unregisteredNodes.length>0}
+                      {#each unregisteredNodes as node }
+                        <label>
+                          <input type="checkbox" class="peer hidden" name="regist_node" value={node}>
+                          <div class="peer-checked:bg-base-200 rounded-md p-1"> {node} </div>
+                        </label>
+                      {/each}
+                      <div class="grow"></div>
+                      <input type="submit" class="btn btn-ghost btn-sm h-5 hover:drop-shadow-lg" value="등록" on:click={()=>{window.location.href =`/${user}`}}>
+                    {/if}
+                  </form>
                 </fieldset>
+
+
                 <fieldset class="flex flex-row gap-2 p-3 my-2 rounded-lg bg-base-100 items-center drop-shadow-sm border-2">
                   <legend>등록되지 않은 노드</legend>
                   {#if unregisteredNodes.length>0}

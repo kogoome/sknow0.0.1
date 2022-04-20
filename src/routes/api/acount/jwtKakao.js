@@ -1,5 +1,5 @@
-import controller from '$controller/0.index.js'
-const { User } = controller
+import api from '$api/0.index.js'
+const { User } = api
 
 export const post = async ({ request }) => {
   const { id, password } = await request.json()

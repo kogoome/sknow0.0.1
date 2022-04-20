@@ -2,10 +2,10 @@
   export const load = async ({url, params})=>{
     const user = params.user
     // 세션아이디와 일치하는지 확인하고 타인 계정으로 접속하지 않게.
-    const {origin, pathname, href} = url
+    // const {origin, pathname, href} = url
     return { 
-      props:{ origin, user, },
-      stuff:{ user },
+      props:{ user },// 에디터레이아웃에서 사용
+      stuff:{ user },// [user]인덱스에서 사용
     }
   }
 </script>

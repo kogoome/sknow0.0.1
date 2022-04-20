@@ -12,7 +12,7 @@ const config = {
 					$config: path.resolve('./src/lib/config'),
 					$feature: path.resolve('./src/lib/featureComponenet'),
 					$util: path.resolve('./src/lib/util'),
-					$controller: path.resolve('./src/lib/mongoose/controller'),
+					$api: path.resolve('./src/lib/mongoose/api'),
 					$model: path.resolve('./src/lib/mongoose/model'),
 					$routes: path.resolve('./src/routes'),
 				}

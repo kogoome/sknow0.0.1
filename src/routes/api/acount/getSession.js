@@ -1,6 +1,6 @@
-import controller from '$controller/0.index.js'
+import api from '$api/0.index.js'
 // User include session array
-const { User } = controller
+const { User } = api
 
 // routes>__layout
 // client sessionId -> return server loginId
@@ -10,6 +10,7 @@ export const post = async ({ request }) => {
   const { sessionId } = await request.json()
   const session = await User.getSession(sessionId)
   loginId = session ? session.id : ""
+  console.log("세션확인 loginId", loginId)
 
   return {
     status: 200,

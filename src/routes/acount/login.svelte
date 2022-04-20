@@ -29,7 +29,7 @@
       }).then(res=>res.json()).catch(err=>console.log(err))
       if(res.status==200){
         message = res.name
-        window.location.reload()
+        window.location.href = `/${res.name}`
       } else {
         // TODO 로그인 실패 문구 띄워주기
         console.log("status 400")

@@ -1,7 +1,7 @@
 import * as cookie from 'cookie';
-import controller from '$controller/0.index.js'
+import api from '$api/0.index';
 // User include session array
-const { User } = controller
+const { User } = api
 
 
 // routes>acount>login
