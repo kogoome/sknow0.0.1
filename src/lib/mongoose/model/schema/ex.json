@@ -1,0 +1,23 @@
+{
+  "node":[
+    {
+      "name":"tree",
+      "description":"some plant"
+    },
+    {
+      "name":"fruit",
+      "description":"some flower"
+    },
+    {
+      "name":"apple",
+      "description":"some fruit"
+    }
+  ],
+  "edge":[
+    {
+      "name": "include",
+      "source":"tree",
+      "target":"fruit"
+    }
+  ]
+}

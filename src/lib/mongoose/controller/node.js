@@ -3,14 +3,18 @@ const { Node } = schema
 
 
 const readNode = async (nodeArr) => {
+
 	// 다중검색 조건생성
 	const orCondition = nodeArr.map(word => ({ name: word }))
-	console.log("🚀 ~ file: node.js ~ line 8 ~ readNode ~ orCondition", orCondition)
+	// console.log("🚀 ~ file: node.js ~ line 8 ~ readNode ~ orCondition", orCondition)
 	// 다중검색 리턴 검색값배열
-	const nodes = await Node.find().or(orCondition)
-	console.log("검색결과", nodes)
-	//컨디션과 비교하여 노드에 있는지 없는지 판단 가능
-	return nodes
+	const registeredNodes = await Node.find().or(orCondition)
+	const unregisteredNodes = nodeArr.filter(word => !registeredNodes.map(node => node.name).includes(word))
+	const result = {
+		registeredNodes,
+		unregisteredNodes
+	}
+	return result
 }
 
 

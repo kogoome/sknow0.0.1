@@ -36,11 +36,13 @@
   export let user = "unknown" // 받는값이 없으면 초기값으로 대체
   // 2. $page.stuff.user 페이지데이터로 수신
 
-  // @대분류 #노드 $엣지
-  // @수학 #이차방정식 $근
-  // #이차방정식 #근 $근의공식, 겟방식으로 전송안댐
-  $: keyword ="@수학 #이차방정식 $근의공식"
+  // @대분류 #노드 $엣지 미구현
+  // #이차방정식 #근 $근의공식
+  $: keyword ="수학 이차방정식 근의공식"
   $: searchModal = false
+  $: unregisteredNodes = []
+  $: registeredNodes = {}
+
 
   // 키코드 함수
   const pressSearchInput= (e)=>{
@@ -69,11 +71,19 @@
   }
   // 검색함수
   const searchNodes = async ()=>{
-    const searchRes = await fetch('/api/document/search_node' ,{
+    const {result} = await fetch('/api/document/search_node' ,{
 			method:"POST",
       body:JSON.stringify({keyword}),
 		}).then(res=>res.json()).catch(err=>alert(err))
-    // console.log("🚀 ~ file: index.svelte ~ line 73 ~ searchNodes ~ searchRes", searchRes)
+    unregisteredNodes = result.unregisteredNodes
+    registeredNodes= result.registeredNodes
+  }
+  const registNode = async (e)=>{
+    const node = e.target.previousElementSibling.text
+    await fetch('/api/document/regist_node' ,{
+      method:"POST",
+      body:""
+    }).then(res=>res.json()).catch(err=>alert(err))
   }
 </script>
 
@@ -121,11 +131,22 @@
       <div bind:this={accordionList} class="flex flex-col justify-start">
         <div class="">
           <div class="accordion text-white px-5
-          bg-neutral hover:bg-secondary 
+          bg-neutral hover:bg-secondary flex flex-row justify-start items-center 
           transition ease-in-out">
             <i class="fa-solid fa-caret-right pointer-events-none w-3"></i>
-            <span class="grow pointer-events-none ">node</span>
-            <i class="fa-solid fa-circle-plus ml-auto"></i>
+            <span class="grow pointer-events-none pl-1">node</span>
+            <a href="/{user}/registNode" class=""><i class="fa-solid fa-circle-plus text-sm"></i></a>
+          </div>
+          <ul class="accordion-content overflow-hidden max-h-0 transition-all duration-300">
+            <li class="active:bg-secondary px-6">카테고리1</li>
+          </ul>
+        </div>
+        <div class="">
+          <div class="accordion text-white px-5
+          bg-neutral hover:bg-secondary flex flex-row justify-start items-center
+          transition ease-in-out ">
+            <i class="fa-solid fa-caret-right pointer-events-none w-3"></i>
+            <span class="pointer-events-none pl-1">library</span>
           </div>
           <ul class="accordion-content overflow-hidden max-h-0 transition-all duration-300">
             <li class="active:bg-secondary px-6">컨텐츠1</li>
@@ -136,24 +157,10 @@
         </div>
         <div class="">
           <div class="accordion text-white px-5
-          bg-neutral hover:bg-secondary 
+          bg-neutral hover:bg-secondary flex flex-row justify-start items-center
           transition ease-in-out ">
             <i class="fa-solid fa-caret-right pointer-events-none w-3"></i>
-            <span class="pointer-events-none">library</span>
-          </div>
-          <ul class="accordion-content overflow-hidden max-h-0 transition-all duration-300">
-            <li class="active:bg-secondary px-6">컨텐츠1</li>
-            <li class="active:bg-secondary px-6">컨텐츠2</li>
-            <li class="active:bg-secondary px-6">컨텐츠3</li>
-            <li class="active:bg-secondary px-6">컨텐츠4</li>
-          </ul>
-        </div>
-        <div class="">
-          <div class="accordion text-white px-5
-          bg-neutral hover:bg-secondary 
-          transition ease-in-out ">
-            <i class="fa-solid fa-caret-right pointer-events-none w-3"></i>
-            <span class="pointer-events-none">document</span>
+            <span class="pointer-events-none pl-1">document</span>
           </div>
           <ul class="accordion-content overflow-hidden max-h-0 transition-all duration-300">
             <li class="active:bg-secondary px-6">컨텐츠1</li>
@@ -206,21 +213,66 @@
         <slot/> 
         <!-- 서치 모달창 -->
         {#if searchModal}
+          <!-- 모달 뒷배경 -->
           <div class="modalbg w-full h-full absolute z-20 left-0 top-0 flex flex-row justify-center transition-all" on:click={()=>searchModal=false}>
-            <div class="bg-base-100 w-3/5 h-4/5 rounded-2xl py-3 m-auto flex flex-col" on:click={(e)=>e.stopPropagation()}>
-              <header class="flex-none flex flex-row px-5 pb-3 gap-5 border-b-2 border-secondary">
-                <i class="fa-solid fa-magnifying-glass btn btn-ghost m-auto" on:click={searchNodes}></i>
-                <input id="searchModal" class="grow text-2xl bg-base-100 focus:outline-none" bind:value={keyword} placeholder="search nodes" on:keydown={pressModalInput}>
-                <div><kbd class="kbd" on:click={()=>searchModal=false}>esc</kbd></div>
+            <!-- 모달 안배경 -->
+            <div class="bg-base-100 w-3/5 h-4/5 rounded-2xl py-3 m-auto flex flex-col drop-shadow-lg" on:click={(e)=>e.stopPropagation()}>
+              <!-- 모달 헤더 -->
+              <header class="flex-none flex flex-row gap-3 px-5 pb-3 border-b-2 border-secondary items-center">
+                <i class="fa-solid fa-magnifying-glass hover:text-secondary m-auto" on:click={searchNodes}></i>
+                <input id="searchModal" class="grow text-xl bg-base-100 focus:outline-none" bind:value={keyword} placeholder="search nodes" on:keydown={pressModalInput}>
+                <div><kbd class="kbd hover:shadow-md" on:click={()=>searchModal=false}>esc</kbd></div>
               </header>
-              <div class="grow overflow-y-auto px-5">
-                <h3 class="font-bold text-lg">Congratulations random Interner user!</h3>
-                <p class="py-4">
-                  You've been selected for a chance to get one year of subscription to use Wikipedia for free! 
-                </p>
-                <p class="py-4">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis beatae eius nobis numquam nulla consequatur, reiciendis et commodi minus, architecto doloribus perferendis dignissimos eos? Commodi id officiis facilis ducimus placeat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis beatae eius nobis numquam nulla consequatur, reiciendis et commodi minus, architecto doloribus perferendis dignissimos eos? Commodi id officiis facilis ducimus placeat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis beatae eius nobis numquam nulla consequatur, reiciendis et commodi minus, architecto doloribus perferendis dignissimos eos? Commodi id officiis facilis ducimus placeat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis beatae eius nobis numquam nulla consequatur, reiciendis et commodi minus, architecto doloribus perferendis dignissimos eos? Commodi id officiis facilis ducimus placeat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis beatae eius nobis numquam nulla consequatur, reiciendis et commodi minus, architecto doloribus perferendis dignissimos eos? Commodi id officiis facilis ducimus placeat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis beatae eius nobis numquam nulla consequatur, reiciendis et commodi minus, architecto doloribus perferendis dignissimos eos? Commodi id officiis facilis ducimus placeat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis beatae eius nobis numquam nulla consequatur, reiciendis et commodi minus, architecto doloribus perferendis dignissimos eos? Commodi id officiis facilis ducimus placeat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis beatae eius nobis numquam nulla consequatur, reiciendis et commodi minus, architecto doloribus perferendis dignissimos eos? Commodi id officiis facilis ducimus placeat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis beatae eius nobis numquam nulla consequatur, reiciendis et commodi minus, architecto doloribus perferendis dignissimos eos? Commodi id officiis facilis ducimus placeat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis beatae eius nobis numquam nulla consequatur, reiciendis et commodi minus, architecto doloribus perferendis dignissimos eos? Commodi id officiis facilis ducimus placeat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis beatae eius nobis numquam nulla consequatur, reiciendis et commodi minus, architecto doloribus perferendis dignissimos eos? Commodi id officiis facilis ducimus placeat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis beatae eius nobis numquam nulla consequatur, reiciendis et commodi minus, architecto doloribus perferendis dignissimos eos? Commodi id officiis facilis ducimus placeat.
-                </p>
+              <!-- 모달 컨텐츠 -->
+              <div class="grow overflow-y-auto p-5">
+
+                <fieldset class="flex flex-row gap-2 p-3 my-2 rounded-lg bg-base-100 items-center drop-shadow-sm border-2">
+                  <legend>등록되지 않은 노드</legend>
+                  {#if unregisteredNodes.length>0}
+                    {#each unregisteredNodes as node }
+                      <label>
+                        <input type="checkbox" class="peer hidden">
+                        <div class="peer-checked:bg-base-200 rounded-md p-1"> {node} </div>
+                      </label>
+                    {/each}
+                    <div class="grow"></div>
+                    <button class="btn btn-ghost btn-sm h-5 hover:drop-shadow-lg">등록</button>
+                  {/if}
+                </fieldset>
+                <fieldset class="flex flex-row gap-2 p-3 my-2 rounded-lg bg-base-100 items-center drop-shadow-sm border-2">
+                  <legend>등록되지 않은 노드</legend>
+                  {#if unregisteredNodes.length>0}
+                    {#each unregisteredNodes as node }
+                      <label>
+                        <input type="checkbox" class="peer hidden">
+                        <div class="peer-checked:bg-base-200 rounded-md p-1"> {node} </div>
+                      </label>
+                    {/each}
+                    <div class="grow"></div>
+                    <button class="btn btn-ghost btn-sm h-5 hover:drop-shadow-lg">등록</button>
+                  {/if}
+                </fieldset>
+                <fieldset class="flex flex-row gap-2 p-3 my-2 rounded-lg bg-base-100 items-center drop-shadow-sm border-2">
+                  <legend>등록되지 않은 노드</legend>
+                  {#if unregisteredNodes.length>0}
+                    {#each unregisteredNodes as node }
+                      <label>
+                        <input type="checkbox" class="peer hidden">
+                        <div class="peer-checked:bg-base-200 rounded-md p-1"> {node} </div>
+                      </label>
+                    {/each}
+                    <div class="grow"></div>
+                    <button class="btn btn-ghost btn-sm h-5 hover:drop-shadow-lg">등록</button>
+                  {/if}
+                </fieldset>
+
+                
+
+
+
+
+
+
               </div>
               <footer class="flex-none px-5 text-2xl">footer</footer>
             </div>
