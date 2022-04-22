@@ -100,24 +100,18 @@
       <li class="active:bg-secondary">제텔카스텐 서지</li>
       <li class="active:bg-secondary">시작페이지 스크롤 로딩 기능소개</li>
       <li class="active:bg-secondary">타입스크립트 리팩토링</li>
-    </ul>
-    <div class="title text-white px-2 bg-neutral hover:bg-secondary text-xl text-center">
-      <span class="">4.18</span>
-    </div>
-    <ul class="content">
-      <li class="active:bg-secondary">테일윈드로 accordion 작성. peer클래스는 아주 좋다</li>
       <li class="active:bg-secondary">node 쓰기 기능 필요</li>
       <li class="active:bg-secondary">edge 쓰기기능 필요</li>
       <li class="active:bg-secondary">edge 쓰고 나서 node 검색에 edge path 검색추가</li>
+      <li class="active:bg-secondary">노드 쓰기 폼데이터 버리고, 함수로 바꿀것</li>
+      <li class="active:bg-secondary">문서 데이터는 글로벌 팀 개인으로 나눔</li>
+      <li class="active:bg-secondary">먼저 개인 문서부터</li>
+      <li class="active:bg-secondary">노드 엣지 검색은 글로벌로</li>
+      <li class="active:bg-secondary">문서 쓰기는 개인쓰기이므로, 개인디비사용</li>
     </ul>
-    <div class="title text-white px-2 bg-neutral hover:bg-secondary text-xl text-center">
-      <span class="">4.19</span>
-    </div>
-    <ul class="content">
-      <li class="active:bg-secondary">서치 모달 레이아웃 작성</li>
-      <li class="active:bg-secondary"></li>
-    </ul>
-    
+
+
+
     
   </div>
 
@@ -126,6 +120,28 @@
     <!-- complete insert here -->
 
 
+    <div class="title text-white px-2 bg-neutral hover:bg-secondary text-xl text-center">
+      <span class="">4.20</span>
+    </div>
+    <ul class="content">
+      <li class="active:bg-secondary">노드 검색 입력 고민 준니함</li>
+      <li class="active:bg-secondary">노드 페이지 구상</li>
+      <li class="active:bg-secondary">노드 읽기 쓰기</li>
+      
+    </ul>
+    <div class="title text-white px-2 bg-neutral hover:bg-secondary text-xl text-center">
+      <span class="">4.19</span>
+    </div>
+    <ul class="content">
+      <li class="active:bg-secondary">서치 모달 레이아웃 작성</li>
+      <li class="active:bg-secondary"></li>
+    </ul>
+    <div class="title text-white px-2 bg-neutral hover:bg-secondary text-xl text-center">
+      <span class="">4.18</span>
+    </div>
+    <ul class="content">
+      <li class="active:bg-secondary">테일윈드로 accordion 작성. peer클래스는 아주 좋다</li>
+    </ul>
     <div class="title text-white px-2 bg-neutral hover:bg-secondary text-xl text-center">
       <span class="">4.17</span>
     </div>

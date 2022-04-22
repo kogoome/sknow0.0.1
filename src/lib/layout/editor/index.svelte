@@ -58,14 +58,11 @@
     } 
   }
   const pressModalInput= (e)=>{
-    if(e.keyCode==27) {
-      // esc 모달 닫기
+    if(e.keyCode==27) { // esc 모달 닫기
       searchModal = false
-    } else if (e.keyCode==17) {
-      // ctrl 포커싱 버리기
+    } else if (e.keyCode==17) { // ctrl 포커싱 버리기
       document.getElementById("searchModal").blur()
-    } else if (e.keyCode==13) {
-      // enter 검색
+    } else if (e.keyCode==13) { // enter 검색
       searchNodes()
     }
   }

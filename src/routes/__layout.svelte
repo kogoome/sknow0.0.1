@@ -2,7 +2,7 @@
 	// 로그인 정보 : 쿠키로 서버세션에서 아이디 가져오기
   export const load = async ({session,fetch})=>{
 		let loginId = ""
-		if( session.user && session.user.authenticated ) {
+		if( session.user?.authenticated ) {
 			// 가지고있는 세션값이 서버에 등록된 값과 일치하는지 확인,
 			// 일치시 로그인 아이디 리턴
 			const res = await fetch(`/api/acount/getSession`,{
