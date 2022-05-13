@@ -39,16 +39,18 @@
 		};
 	}
 </script>
+
+
 <button on:click={()=>visible=!visible} class="btn"> visible</button>
 {#if visible}
-  <div transition:typewriter> this is typing transition </div>
-  <ul transition:slide>
+  <div in:typewriter out:slide > this is typing transition </div>
+  <ul in:slide out:slide>
     <li>aa</li>
     <li>aa</li>
     <li>aa</li>
     <li>aa</li>
   </ul>
-  <div in:fly={{y:100, duration:2000}} out:fade>
+  <div in:fly={{y:100, duration:2000}} out:slide>
     레이아웃
     <div class="text-lg text-red-400">{stateValue}</div>
     <input type="number" on:keydown={keypress} placeholder="숫자 셋">

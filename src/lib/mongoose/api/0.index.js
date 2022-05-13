@@ -1,9 +1,9 @@
 import User from './user.js'
 import Node from './node.js'
 
-const controlList = {
+const serviceList = {
   User,
   Node,
 }
 
-export default controlList
+export default serviceList

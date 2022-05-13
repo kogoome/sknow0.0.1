@@ -8,9 +8,11 @@
   import Overflow from "$lib/featureComponent/editorContent/overflow.svelte";
   import SimpleCssAccordion from "$lib/featureComponent/editorContent/simpleCssAccordion.svelte";
   import Sortablejs from "$lib/featureComponent/editorContent/sortablejs.svelte";
+  import DragNdrop from "$lib/featureComponent/editorContent/dragNdrop.svelte";
 </script>
 
-<Accordion/>
+<DragNdrop/>
+<!-- <Accordion/>
 <BindElement/>
 <Editorjs/>
 <Modal/>
@@ -18,5 +20,5 @@
 <Mousetrap/>
 <Overflow/>
 <SimpleCssAccordion/>
-<Sortablejs/>
+<Sortablejs/> -->
 

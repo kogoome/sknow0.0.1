@@ -110,13 +110,12 @@
       <div class="text-2xl text-white p-3 mt-5 text-center ">
         <a href="/{user}">
           {user}'s<span class="text-orange-500">K</span>now
-          
         </a>
       </div>
       <!-- 서치바 -->
       <Motion whileHover={{ scale: 1.1, transition: { duration: .3 } }} let:motion>
       <div use:motion class="relative z-0 group mb-5 ml-5 mr-5 mt-5">
-        <input id="search" bind:value={keyword} type="text" name="search_node" class="block h-8 px-5 w-full rounded-2xl  border-gray-300 text-md text-gray-300 text-center bg-transparent appearance-none focus:outline-none focus:ring-0 peer " placeholder=" " on:keydown={pressSearchInput}/>
+        <input id="search" bind:value={keyword} type="text" name="search_node" class="block h-8 px-5  w-full rounded-2xl  border-gray-300 text-md text-gray-300 text-center bg-transparent appearance-none focus:outline-none focus:ring-0 peer " placeholder=" " on:keydown={pressSearchInput}/>
         <label for="search" class="absolute peer-focus:bg-secondary-focus px-2 duration-300 rounded-3xl transform -translate-y-7 scale-75 z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 whitespace-nowrap peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 text-gray-300 text-lg" on:click={()=>searchModal=true}>
           <div class="tooltip tooltip-accent tooltip-right to-violet-600 " data-tip="Ctrl+<Shift>+F">
             Search Nodes
@@ -199,6 +198,9 @@
           <li type="botton" class="bg-base-300 px-4 rounded-t-md active:bg-base-100 hover:bg-base-100">
             <a href="/{user}/releaseNote">releaseNote</a>
           </li>
+          <li type="botton" class="bg-base-300 px-4 rounded-t-md active:bg-base-100 hover:bg-base-100">
+            <a href="/{user}/lib_feature">feature</a>
+          </li>
         </ul>
       </div>
       <!-- 네비 중단 -->
@@ -234,6 +236,10 @@
                   리턴값 후처리해서 노드리스트에 추가하게 할것.
                   페이지 진입시 세션 확인하고 url파람과 아이디일치시, userdoc 데이터 읽어와서 사이드바 데이터에 추가 
                   -->
+                  <!--
+                    인풋데이터 체크된거를 어떻게 배열로 만드는지가 관건
+                    
+                  -->
                   <form action="/api/document/node" class="flex flex-row gap-2 items-center" method="post" target="_blank">
                     {#if unregisteredNodes.length>0}
                       {#each unregisteredNodes as node }
@@ -249,32 +255,7 @@
                 </fieldset>
 
 
-                <fieldset class="flex flex-row gap-2 p-3 my-2 rounded-lg bg-base-100 items-center drop-shadow-sm border-2">
-                  <legend>등록되지 않은 노드</legend>
-                  {#if unregisteredNodes.length>0}
-                    {#each unregisteredNodes as node }
-                      <label>
-                        <input type="checkbox" class="peer hidden">
-                        <div class="peer-checked:bg-base-200 rounded-md p-1"> {node} </div>
-                      </label>
-                    {/each}
-                    <div class="grow"></div>
-                    <button class="btn btn-ghost btn-sm h-5 hover:drop-shadow-lg">등록</button>
-                  {/if}
-                </fieldset>
-                <fieldset class="flex flex-row gap-2 p-3 my-2 rounded-lg bg-base-100 items-center drop-shadow-sm border-2">
-                  <legend>등록되지 않은 노드</legend>
-                  {#if unregisteredNodes.length>0}
-                    {#each unregisteredNodes as node }
-                      <label>
-                        <input type="checkbox" class="peer hidden">
-                        <div class="peer-checked:bg-base-200 rounded-md p-1"> {node} </div>
-                      </label>
-                    {/each}
-                    <div class="grow"></div>
-                    <button class="btn btn-ghost btn-sm h-5 hover:drop-shadow-lg">등록</button>
-                  {/if}
-                </fieldset>
+
 
                 
 
