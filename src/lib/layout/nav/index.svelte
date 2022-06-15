@@ -53,7 +53,6 @@
   </div>
   <div class="navbar-end pr-3">
   <!-- --마지막------------------------------------------ -->
-    
     {#if loginId}
       <div class="dropdown dropdown-end">
         <div tabindex="0" class="btn btn-circle btn-ghost m-1">{loginId}</div>
